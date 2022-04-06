@@ -20,4 +20,19 @@ public class Player {
         score = score - p;
     }
 
+    public void Wager(JTextField tf){
+        String wagerSt= tf.getText();
+        int wager= Integer.parseInt(wagerSt);
+        Question question= new Question();
+        if (question.getQuestion().equals(question.getAnswer())){
+            score=wager+score;
+        }
+        else{
+            score=score-wager;
+        }
+    }
+    public int getScore() {
+        return score;
+    }
+
 }
