@@ -1,3 +1,5 @@
+package com.company;
+
 public class Question {
     String question;
     String answer;
