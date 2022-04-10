@@ -9,31 +9,38 @@ public class Player {
     private int score;
     private boolean control;
 
-    public Player(String name){
-        this.name=name;
+    public Player(String name) {
+        this.name = name;
+        score = 0;
     }
 
-    public void addPoints(int p){
+    public int getScore() {
+        return score;
+    }
+
+    public void addPoints(int p) {
         score = score + p;
     }
 
-    public void subtractPoints(int p){
+    public void subtractPoints(int p) {
         score = score - p;
     }
 
-    public void Wager(JTextField tf){
-        String wagerSt= tf.getText();
-        int wager= Integer.parseInt(wagerSt);
-        Question question= new Question();
-        if (question.getQuestion().equals(question.getAnswer())){
-            score=wager+score;
+    public void Wager(JTextField tf) {
+        int maxWager;
+        if (score < 0) {
+            maxWager = 1000;
+        } else {
+            maxWager = score;
         }
-        else{
-            score=score-wager;
+
+        String wagerSt = tf.getText();
+        int wager = Integer.parseInt(wagerSt);
+        if (wager > maxWager) {
+            JOptionPane.showMessageDialog(null, "The maximum amount you are able to wager for this question is: " + maxWager);
+        } else {
+
         }
-    }
-    public int getScore() {
-        return score;
     }
 
 }
