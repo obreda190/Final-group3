@@ -33,7 +33,10 @@ public class Category {
     }
 
     public String getName() {
-        return name.replace("_", " ").replace("(", "\"").replace(")", "\""). replace(".jeopardy", "");
+        return name.replace("_", " ")
+                .replace("(", "\"")
+                .replace(")", "\"")
+                . replace(".jeopardy", "");
     }
 
     @Override
