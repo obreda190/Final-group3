@@ -39,6 +39,18 @@ public class Category {
                 . replace(".jeopardy", "");
     }
 
+    public Question getQuestion(int points) {
+        int i;
+        Question key = null;
+        for (Question q : category) {
+            i = q.getPoints();
+            if (i == points) {
+                key = q;
+            }
+        }
+        return key;
+    }
+
     @Override
     public String toString (){
         String data = "";

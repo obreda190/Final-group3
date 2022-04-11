@@ -30,12 +30,20 @@ public class Question {
         }
     }
 
+    public String getCat() {
+        return category;
+    }
+
     public String getQuestion() {
         return question;
     }
 
     public String getAnswer() {
         return answer;
+    }
+
+    public int getPoints() {
+        return points;
     }
 
     @Override

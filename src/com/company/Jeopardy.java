@@ -14,9 +14,9 @@ public class Jeopardy {
             Category c = new Category(s);
             cat.add(c);
         }
-        for (Category c : cat) {
-            System.out.println(c);
-        }
+
+        Category c = cat.get(1);
+        QuestionWindow q = new QuestionWindow(c.getQuestion(200));
     }
 
     public static ArrayList<String> getCategories() {
