@@ -25,7 +25,7 @@ public class QuestionWindow {
         tf = new JTextField(25);
         frame.getContentPane().add(tf);
 
-        button = new JButton("done");
+        button = new JButton("Placeholder");
         frame.getContentPane().add(button);
 
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
