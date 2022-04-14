@@ -56,11 +56,11 @@ public class QuestionWindow {
             boolean check = checkAnswer(getValue);
             if (check) {
                 //call method to add points to player's score
-                System.out.println("Correct");
+                System.out.println("Correct"); //Not permanent, just for testing purposes
             } else {
                 //call method to subtract points to player's score
                 // return to whatever state we were in that allowed players to buzz in
-                System.out.println("Incorrect, the correct answer was: " + question.getAnswer());
+                System.out.println("Incorrect, the correct answer was: " + question.getAnswer()); //Not permanent, just for testing purposes
             }
         }
     }
