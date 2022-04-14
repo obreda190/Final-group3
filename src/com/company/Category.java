@@ -36,7 +36,7 @@ public class Category {
         return name.replace("_", " ")
                 .replace("(", "\"")
                 .replace(")", "\"")
-                . replace(".jeopardy", "");
+                .replace(".jeopardy", "");
     }
 
     public Question getQuestion(int points) {
