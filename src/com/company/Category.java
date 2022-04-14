@@ -12,7 +12,6 @@ public class Category {
     private ArrayList<Question> category;
 
     public Category(String name) {
-
         this.name = name;
         category = new ArrayList<>();
 
@@ -30,6 +29,16 @@ public class Category {
             Question q = new Question(reader, getName());
             category.add(q);
         }
+    }
+
+    public void doubleJeopardy() {
+        for (Question q : category) {
+            q.doubleJeopardy();
+        }
+    }
+
+    public ArrayList<Question> getQuestionsList() {
+        return category;
     }
 
     public String getName() {

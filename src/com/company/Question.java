@@ -11,7 +11,6 @@ public class Question {
     boolean asked;
 
     public Question(Scanner in, String category) {
-
         this.category = category;
 
         question = in.nextLine();
@@ -44,6 +43,10 @@ public class Question {
 
     public int getPoints() {
         return points;
+    }
+
+    public void doubleJeopardy() {
+        points = points * 2;
     }
 
     @Override

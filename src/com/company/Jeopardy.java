@@ -7,26 +7,42 @@ public class Jeopardy {
 
     public static void main(String[] args) {
 
-        ArrayList<String> categories = getCategories();
-        ArrayList<Category> cat = new ArrayList<>();
+        ArrayList<Category> cat = getRoundCategories();
 
-        for (String s : categories) {
-            Category c = new Category(s);
-            cat.add(c);
-        }
+        System.out.println(cat);
 
-        Category c = cat.get(1);
-        QuestionWindow q = new QuestionWindow(c.getQuestion(200));
     }
 
-    public static ArrayList<String> getCategories() {
-
-        ArrayList<String> names;
+    public static ArrayList<Category> getAllCategories() {
+        ArrayList<String> allNames;
+        ArrayList<Category> allCats = new ArrayList<>();
 
         File f = new File("./jeopardy");
-        names = new ArrayList<>(Arrays.asList(f.list()));
+        allNames = new ArrayList<>(Arrays.asList(f.list()));
 
-        return names;
+        for (String s : allNames) {
+            Category c = new Category(s);
+            allCats.add(c);
+        }
+
+        return allCats;
+    }
+
+    public static ArrayList<Category> getRoundCategories() {
+        ArrayList<Category> allCats = getAllCategories();
+        ArrayList<Category> roundCats = new ArrayList<>();
+        Random rng = new Random();
+        int sampleSize = allCats.size();
+
+        for (int i = 0; i < 6; i++) {
+            int num = rng.nextInt(sampleSize);
+            Category c = allCats.get(num);
+            roundCats.add(c);
+            allCats.remove(c);
+            sampleSize--;
+        }
+
+        return roundCats;
     }
 
 }

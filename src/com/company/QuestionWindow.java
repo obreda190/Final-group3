@@ -25,7 +25,7 @@ public class QuestionWindow {
         tf = new JTextField(25);
         frame.getContentPane().add(tf);
 
-        button = new JButton("Placeholder");
+        button = new JButton("Done");
         button.addActionListener(new ButtonListener(tf));
         frame.getContentPane().add(button);
 
@@ -39,11 +39,7 @@ public class QuestionWindow {
         boolean check;
         String answer = question.getAnswer().toLowerCase();
 
-        if (answer.equals(response.toLowerCase())) {
-            check = true;
-        } else {
-            check = false;
-        }
+        check = answer.equals(response.toLowerCase());
         return check;
     }
 
@@ -60,9 +56,11 @@ public class QuestionWindow {
             boolean check = checkAnswer(getValue);
             if (check) {
                 //call method to add points to player's score
+                System.out.println("Correct");
             } else {
                 //call method to subtract points to player's score
                 // return to whatever state we were in that allowed players to buzz in
+                System.out.println("Incorrect, the correct answer was: " + question.getAnswer());
             }
         }
     }
