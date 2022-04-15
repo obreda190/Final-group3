@@ -10,6 +10,7 @@ public class Jeopardy {
         ArrayList<Category> cats = getAllCategories();
         ArrayList<Category> roundCat = getRoundCategories(cats);
 
+        JWindow jeopardyWindow = new JWindow(roundCat, 1);
 
     }
 

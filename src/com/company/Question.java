@@ -49,6 +49,12 @@ public class Question {
         points = points * 2;
     }
 
+    public String pointString() {
+        String data = "";
+        data = data + points;
+        return data;
+    };
+
     @Override
     public String toString() {
         String data = "";
