@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Category {
@@ -45,7 +46,8 @@ public class Category {
         return name.replace("_", " ")
                 .replace("(", "\"")
                 .replace(")", "\"")
-                .replace(".jeopardy", "");
+                .replace(".jeopardy", "")
+                .toUpperCase(Locale.ROOT);
     }
 
     public Question getQuestion(int points) {
