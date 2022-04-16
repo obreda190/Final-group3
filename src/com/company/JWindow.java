@@ -12,9 +12,11 @@ public class JWindow {
     private ArrayList<Category> categories;
     private JFrame frame;
 
-    public JWindow(ArrayList<Category> categories, int roundNum) {
+    public JWindow(ArrayList<Category> categories, int roundNum) throws InterruptedException {
         this.categories = categories;
         this.roundNum = roundNum;
+        //Timer being made
+        Timers t1=new Timers("jeopardy");
 
         if (roundNum == 1) {
             frame = new JFrame("Jeopardy Round");
@@ -55,6 +57,18 @@ public class JWindow {
         frame.setSize(1000,450);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        //starts t1 after window is established(look into if this changes timing)
+        t1.start();
+
+        try{
+            //joins t1 to window thread so when t1 is done...
+            t1.join();
+        }catch(InterruptedException e){
+            System.out.print("Interrupted Jeo");
+        }
+        //...the window becomes invisible
+        frame.setVisible(false);
+
     }
 
     public void doubleJeopardy() {
