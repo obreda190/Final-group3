@@ -43,16 +43,16 @@ public class ScoreBoard extends Thread {
 
         board.getContentPane().setLayout(new FlowLayout());
         board.pack();
+        board.setLocationRelativeTo(null);
         board.setVisible(true);
     }
 
     public void run(){
         try{
-            Thread.sleep(1000);
+            Thread.sleep(5000);
             board.repaint();
         }catch(InterruptedException e){
             System.out.println("Interrupt ScoreBoard");
-
         }
     }
 
