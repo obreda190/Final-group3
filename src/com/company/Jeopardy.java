@@ -8,14 +8,12 @@ public class Jeopardy {
     public static void main(String[] args) throws InterruptedException {
 
         ArrayList<Category> cats = getAllCategories();
-        ArrayList<Category> roundCat = getRoundCategories(cats);
 
+        ArrayList<Category> roundCat = getRoundCategories(cats);
         JWindow jeopardyWindow = new JWindow(roundCat, 1);
 
         ArrayList<Category> roundCat2 = getRoundCategories(cats);
-
         JWindow doubleWindow = new JWindow(roundCat2, 2);
-
 
     }
 
