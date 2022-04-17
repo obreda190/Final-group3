@@ -67,7 +67,7 @@ public class JWindow {
             //joins t1 to window thread so when t1 is done...
             t1.join();
         }catch(InterruptedException e){
-            System.out.print("Interrupted Jeo");
+            System.out.print("Interrupted Jeopardy");
         }
         //...the window becomes invisible
         frame.setVisible(false);
