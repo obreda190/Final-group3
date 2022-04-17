@@ -8,16 +8,19 @@ public class QuestionWindow {
     private String category;
     private Question question;
     private JFrame frame;
+    private JLabel name;
     private JLabel label;
     private JTextField tf;
     private JButton button;
 
-    public QuestionWindow(Question q) {
+    public QuestionWindow(Question q, String player) {
         this.category = q.getCat();
         question = q;
 
         frame = new JFrame(category);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        name = new JLabel(player);
+        frame.getContentPane().add(name);
 
         label = new JLabel(question.getQuestion());
         frame.getContentPane().add(label);

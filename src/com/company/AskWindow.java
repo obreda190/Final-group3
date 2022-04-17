@@ -3,6 +3,8 @@ package com.company;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AskWindow {
 
@@ -33,8 +35,11 @@ public class AskWindow {
         b2 = new JButton("Player 2");
         b3 = new JButton("Player 3");
         panel.add(b1);
+        b1.addActionListener(new ButtonListener(b1.getText()));
         panel.add(b2);
+        b2.addActionListener(new ButtonListener(b2.getText()));
         panel.add(b3);
+        b3.addActionListener(new ButtonListener(b3.getText()));
         frame.getContentPane().add(panel);
         frame.getContentPane().add(Box.createVerticalStrut(10));
 
@@ -44,5 +49,17 @@ public class AskWindow {
         frame.setVisible(true);
     }
 
+    class ButtonListener implements ActionListener {
+
+        private String name;
+
+        public ButtonListener(String name) {
+            this.name = name;
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            QuestionWindow qw = new QuestionWindow(question, name);
+        }
+    }
 
 }
