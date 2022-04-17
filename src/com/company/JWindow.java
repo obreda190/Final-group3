@@ -42,20 +42,21 @@ public class JWindow {
 
             for(Question q : questions) {
                 //Add buttons and listeners for each Question in the ArrayList and add to the panel
+                JPanel p = new JPanel();
+                p.setLayout(new BorderLayout());
                 JButton button = new JButton(q.pointString());
                 button.addActionListener(new ButtonListener(q));
-                button.setMinimumSize(new Dimension(75,75));
-                button.setMaximumSize(button.getMinimumSize());
-                button.setAlignmentX(Box.CENTER_ALIGNMENT);
-                panel.add(button);
+                p.add(button, BorderLayout.CENTER);
+                panel.add(p);
             }
 
+            panel.setPreferredSize(new Dimension(200, 500));
             panel.setBorder(blackLine);
             panel.setVisible(true);
             frame.getContentPane().add(panel);
         }
 
-        frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
+        frame.getContentPane().setLayout(new FlowLayout());
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
