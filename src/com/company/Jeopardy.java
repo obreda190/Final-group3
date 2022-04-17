@@ -12,6 +12,18 @@ public class Jeopardy {
 
         JWindow jeopardyWindow = new JWindow(roundCat, 1);
 
+        ArrayList<Player> play = new ArrayList<Player>();
+        Player one = new Player("Jerry");
+        Player two = new Player("Jeremy");
+        Player three = new Player("Jessica");
+        play.add(one);
+        play.add(two);
+        play.add(three);
+
+        ScoreBoard score = new ScoreBoard(play);
+        score.start();
+        score.join();
+
         ArrayList<Category> roundCat2 = getRoundCategories(cats);
 
         JWindow doubleWindow = new JWindow(roundCat2, 2);
