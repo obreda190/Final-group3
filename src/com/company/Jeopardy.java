@@ -12,8 +12,7 @@ public class Jeopardy {
 
         JWindow jeopardyWindow = new JWindow(roundCat, 1);
 
-        ArrayList<Category> cats2 = getAllCategories();
-        ArrayList<Category> roundCat2 = getRoundCategories(cats2);
+        ArrayList<Category> roundCat2 = getRoundCategories(cats);
 
         JWindow doubleWindow = new JWindow(roundCat2, 2);
 

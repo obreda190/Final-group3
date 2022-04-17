@@ -16,11 +16,11 @@ public class Timers extends Thread {
         if (rt == RoundType.Jeopardy){
             try {
                 //sleep for 30 seconds for testing
-                Thread.sleep(30000);
+                Thread.sleep(3000);
                 //warning for a min
                 JOptionPane.showMessageDialog(null,"One minute remaining","Warning", JOptionPane.WARNING_MESSAGE);
                 //sleep for another 30 seconds for testing
-                Thread.sleep(30000);
+                Thread.sleep(3000);
 
             } catch (InterruptedException e) {
                 System.out.println("Timer Interrupted");
