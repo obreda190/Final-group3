@@ -16,7 +16,9 @@ public class JWindow {
         this.categories = categories;
         this.roundNum = roundNum;
         //Timer being made
-        Timers t1=new Timers("jeopardy");
+        Timers t1 = new Timers(RoundType.Jeopardy);
+        Border blackLine = BorderFactory.createLineBorder(Color.black);
+        Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         if (roundNum == 1) {
             frame = new JFrame("Jeopardy Round");
@@ -25,22 +27,23 @@ public class JWindow {
             doubleJeopardy();
         }
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getRootPane().setBorder(blank);
 
         for(Category c : categories) {
             ArrayList<Question> questions = c.getQuestionsList();
             JPanel panel = new JPanel();
-            Border blackLine = BorderFactory.createLineBorder(Color.black);
-            panel.setLayout(new FlowLayout(FlowLayout.CENTER));
-            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-            JLabel cat = new JLabel(c.getName());
-            cat.setBorder(blackLine);
+            JLabel cat = new JLabel("<html><p>"+c.getName()+"</p></html>", SwingConstants.CENTER);
+            cat.setVerticalAlignment(SwingConstants.CENTER);
+            cat.setBorder(blank);
             panel.add(cat);
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
             for(Question q : questions) {
                 //Add buttons and listeners for each Question in the ArrayList and add to the panel
                 JButton button = new JButton(q.pointString());
+                button.addActionListener(new ButtonListener(q));
                 button.setMinimumSize(new Dimension(75,75));
                 button.setMaximumSize(button.getMinimumSize());
                 button.setAlignmentX(Box.CENTER_ALIGNMENT);
@@ -50,11 +53,10 @@ public class JWindow {
             panel.setBorder(blackLine);
             panel.setVisible(true);
             frame.getContentPane().add(panel);
-            frame.getContentPane().add(Box.createHorizontalStrut(50));
         }
 
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
-        frame.setSize(1000,450);
+        frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         //starts t1 after window is established(look into if this changes timing)
@@ -68,7 +70,19 @@ public class JWindow {
         }
         //...the window becomes invisible
         frame.setVisible(false);
+    }
 
+    class ButtonListener implements ActionListener {
+
+        private Question question;
+
+        public ButtonListener(Question question) {
+            this.question = question;
+        }
+
+        public void actionPerformed(ActionEvent e) {
+            AskWindow aw = new AskWindow(question);
+        }
     }
 
     public void doubleJeopardy() {

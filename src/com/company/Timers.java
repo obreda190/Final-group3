@@ -3,16 +3,17 @@ package com.company;
 import javax.swing.*;
 
 public class Timers extends Thread {
-    private String type;
 
-    public Timers(String type){
-        this.type = type;
+    private RoundType rt;
+
+    public Timers(RoundType rt){
+        this.rt = rt;
     }
 
     @Override
     public void run(){
         //Timer for rounds (regular jeopardy/double jeopardy possibly final?)
-        if (type.equals("jeopardy")){
+        if (rt == RoundType.Jeopardy){
             try {
                 //sleep for 30 seconds for testing
                 Thread.sleep(30000);
