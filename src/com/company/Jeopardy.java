@@ -7,9 +7,12 @@ public class Jeopardy {
 
     public static void main(String[] args) throws InterruptedException {
 
+        MenuWindow menu = new MenuWindow();
+
         ArrayList<Category> cats = getAllCategories();
 
         ArrayList<Category> roundCat = getRoundCategories(cats);
+
         JWindow jeopardyWindow = new JWindow(roundCat, 1);
 
         ArrayList<Player> play = new ArrayList<Player>();
@@ -22,7 +25,6 @@ public class Jeopardy {
 
         ScoreBoard score = new ScoreBoard(play);
         score.start();
-        score.join();
 
         ArrayList<Category> roundCat2 = getRoundCategories(cats);
         JWindow doubleWindow = new JWindow(roundCat2, 2);

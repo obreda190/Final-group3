@@ -54,6 +54,7 @@ public class ScoreBoard extends Thread {
         }catch(InterruptedException e){
             System.out.println("Interrupt ScoreBoard");
         }
+        start();
     }
 
 }

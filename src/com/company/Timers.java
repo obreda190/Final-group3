@@ -27,6 +27,14 @@ public class Timers extends Thread {
             }
             //add question timer and final timer if necessary
 
+        }else if(rt == RoundType.Question){
+            try {
+                Thread.sleep(5000);
+                JOptionPane.showMessageDialog(null,"Sorry! Too slow... points were deducted","Sorry!", JOptionPane.PLAIN_MESSAGE);
+            } catch (InterruptedException e) {
+                System.out.println("Timer Interrupted");
+            }
+
         }
     }
 }
