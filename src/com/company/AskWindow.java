@@ -15,6 +15,8 @@ public class AskWindow {
     private JButton b2;
     private JButton b3;
 
+
+    //Keybinds
     public AskWindow(Question q) {
 
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);

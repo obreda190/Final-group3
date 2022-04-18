@@ -84,6 +84,8 @@ public class JWindow {
         public void actionPerformed(ActionEvent e) {
             AskWindow aw = new AskWindow(question);
         }
+
+        //Disable buttons
     }
 
     public void doubleJeopardy() {

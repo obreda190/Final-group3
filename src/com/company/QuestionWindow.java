@@ -75,7 +75,7 @@ public class QuestionWindow {
                 System.out.println("Incorrect, the correct answer was: " + question.getAnswer()); //Not permanent, just for testing purposes
             }
             //Dispose QuestionWindow
-            //return to whatever state we were in that allowed players to buzz in, disable whoever buzzed in first
+            //Dispose AskWindow
         }
     }
 }
