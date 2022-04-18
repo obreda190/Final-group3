@@ -24,6 +24,7 @@ public class AskWindow {
 
         frame = new JFrame(category);
         frame.getContentPane().add(Box.createVerticalStrut(10));
+        //Add timer
 
         label = new JLabel(question.getQuestion());
         label.setBorder(blank);
@@ -51,6 +52,8 @@ public class AskWindow {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        //join timer
     }
 
     class ButtonListener implements ActionListener {

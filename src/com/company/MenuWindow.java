@@ -10,10 +10,9 @@ import java.util.ArrayList;
 public class MenuWindow {
 
     private JFrame menu;
-    private JTextField text;
     private Thread t;
 
-    public MenuWindow(){
+    public MenuWindow() {
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);

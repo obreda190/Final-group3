@@ -6,12 +6,12 @@ public class Timers extends Thread {
 
     private RoundType rt;
 
-    public Timers(RoundType rt){
+    public Timers(RoundType rt) {
         this.rt = rt;
     }
 
     @Override
-    public void run(){
+    public void run() {
         //Timer for rounds (regular jeopardy/double jeopardy possibly final?)
         if (rt == RoundType.Jeopardy) {
             try {

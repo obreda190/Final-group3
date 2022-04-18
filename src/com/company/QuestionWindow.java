@@ -72,16 +72,10 @@ public class QuestionWindow {
                 System.out.println("Correct"); //Not permanent, just for testing purposes
             } else {
                 //call method to subtract points to player's score
-                // return to whatever state we were in that allowed players to buzz in
                 System.out.println("Incorrect, the correct answer was: " + question.getAnswer()); //Not permanent, just for testing purposes
             }
-        }
-    }
-
-    class ExitListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.exit(0);
+            //Dispose QuestionWindow
+            //return to whatever state we were in that allowed players to buzz in, disable whoever buzzed in first
         }
     }
 }

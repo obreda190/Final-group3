@@ -8,7 +8,6 @@ import java.awt.event.*;
 
 public class JWindow {
 
-    private int roundNum;
     private ArrayList<Category> categories;
     private JFrame frame;
 
@@ -18,7 +17,6 @@ public class JWindow {
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         this.categories = categories;
-        this.roundNum = roundNum;
         //Timer being made
         Timers t1 = new Timers(RoundType.Jeopardy);
 
@@ -44,7 +42,6 @@ public class JWindow {
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
             for(Question q : questions) {
-                //Add buttons and listeners for each Question in the ArrayList and add to the panel
                 JPanel p = new JPanel();
                 p.setLayout(new BorderLayout());
                 JButton button = new JButton(q.pointString());
@@ -92,13 +89,6 @@ public class JWindow {
     public void doubleJeopardy() {
         for (Category c : categories) {
             c.doubleJeopardy();
-        }
-    }
-
-    class ExitListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.exit(0);
         }
     }
 }

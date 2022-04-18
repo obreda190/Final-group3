@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+//Make into runnable
 public class PlayerWindow {
 
     private JFrame frame;
