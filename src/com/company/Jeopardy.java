@@ -12,7 +12,6 @@ public class Jeopardy {
         //Thread m = menu.getThread();
         //m.join();
 
-
         //ArrayList<Category> cats = getAllCategories();
 
         //ArrayList<Category> roundCat = getRoundCategories(cats);
@@ -33,13 +32,12 @@ public class Jeopardy {
 
         //ArrayList<Category> roundCat2 = getRoundCategories(cats);
         //JWindow doubleWindow = new JWindow(roundCat2, 2);
-
     }
 
     public static ArrayList<Category> getAllCategories() {
+
         ArrayList<String> allNames;
         ArrayList<Category> allCats = new ArrayList<>();
-
         File f = new File("./jeopardy");
         allNames = new ArrayList<>(Arrays.asList(f.list()));
 
@@ -52,6 +50,7 @@ public class Jeopardy {
     }
 
     public static ArrayList<Category> getRoundCategories(ArrayList<Category> catList) {
+
         ArrayList<Category> roundCats = new ArrayList<>();
         Random rng = new Random();
         int sampleSize = catList.size();
@@ -59,6 +58,7 @@ public class Jeopardy {
         for (int i = 0; i < 6; i++) {
             int num = rng.nextInt(sampleSize);
             Category c = catList.get(num);
+
             roundCats.add(c);
             catList.remove(c);
             sampleSize--;
@@ -66,5 +66,4 @@ public class Jeopardy {
 
         return roundCats;
     }
-
 }

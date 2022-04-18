@@ -30,7 +30,8 @@ public class Player {
         score = score - p;
     }
 
-    public void Wager(JTextField tf) {
+    public void wager(JTextField tf) {
+
         int maxWager;
         if (score < 0) {
             maxWager = 1000;
@@ -38,13 +39,14 @@ public class Player {
             maxWager = score;
         }
 
-        String wagerSt = tf.getText();
-        int wager = Integer.parseInt(wagerSt);
+        String wagerString = tf.getText();
+        int wager = Integer.parseInt(wagerString);
+
         if (wager > maxWager) {
             JOptionPane.showMessageDialog(null, "The maximum amount you are able to wager for this question is: " + maxWager);
+            //Return to whatever state allowed player to enter their wager
         } else {
-            //Ask the question or close the window so the next player
+            //Open QuestionWindow or close the window so the next player can enter their wager for finalJ
         }
     }
-
 }
