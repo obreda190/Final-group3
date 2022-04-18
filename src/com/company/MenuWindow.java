@@ -10,10 +10,10 @@ public class MenuWindow {
     private JFrame menu;
     private JTextField text;
 
-    public MenuWindow(){
+    public MenuWindow() {
+
         menu = new JFrame("Main Menu");
         menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
@@ -23,35 +23,41 @@ public class MenuWindow {
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         panel.setBorder(blackLine);
 
-        JLabel name = new JLabel("Rules");
-        name.setVerticalAlignment(SwingConstants.CENTER);
-        name.setBorder(blank);
-        panel.add(name);
+        JLabel title = new JLabel("This Is Jeopardy!", SwingConstants.CENTER);
+        title.setVerticalAlignment(SwingConstants.CENTER);
+        title.setBorder(blank);
+        panel.add(title);
 
-        JLabel score = new JLabel("Rules here");
-        score.setVerticalAlignment(SwingConstants.CENTER);
-        score.setBorder(blank);
-        panel.add(score);
+        JLabel game = new JLabel("How the game works:", SwingConstants.CENTER);
+        game.setVerticalAlignment(SwingConstants.CENTER);
+        game.setBorder(blank);
+        panel.add(game);
+
+        //Add component (JLabel, JTextArea, etc. whichever works best) that reads from Game.txt into panel
+
+        JLabel rules = new JLabel("Rules:", SwingConstants.CENTER);
+        rules.setVerticalAlignment(SwingConstants.CENTER);
+        rules.setBorder(blank);
+        panel.add(rules);
+
+        //Add component (JLabel, JTextArea, etc. whichever works best) that reads from Game.txt into panel
 
         JButton button = new JButton("Start!");
         //button.addActionListener(new MenuWindow.ButtonListener());
         panel.add(button);
 
+        title.setAlignmentX(Box.CENTER_ALIGNMENT);
+        game.setAlignmentX(Box.CENTER_ALIGNMENT);
+        rules.setAlignmentX(Box.CENTER_ALIGNMENT);
         button.setAlignmentX(Box.CENTER_ALIGNMENT);
-        name.setAlignmentX(Box.CENTER_ALIGNMENT);
-        score.setAlignmentX(Box.CENTER_ALIGNMENT);
 
         menu.getContentPane().add(panel);
-
 
         menu.getContentPane().setLayout(new FlowLayout());
         menu.pack();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
-
-
     }
-
 
    // class ButtonListener implements ActionListener {
 

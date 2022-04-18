@@ -7,14 +7,16 @@ public class Player {
 
     private String name;
     private int score;
-    private boolean control;
+    private int num;
 
     public Player(String name) {
         this.name = name;
         score = 0;
     }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     public int getScore() {
         return score;
@@ -41,7 +43,7 @@ public class Player {
         if (wager > maxWager) {
             JOptionPane.showMessageDialog(null, "The maximum amount you are able to wager for this question is: " + maxWager);
         } else {
-
+            //Ask the question or close the window so the next player
         }
     }
 

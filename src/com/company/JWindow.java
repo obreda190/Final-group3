@@ -50,7 +50,7 @@ public class JWindow {
                 panel.add(p);
             }
 
-            panel.setPreferredSize(new Dimension(200, 500));
+            panel.setPreferredSize(new Dimension(210, 500));
             panel.setBorder(blackLine);
             panel.setVisible(true);
             frame.getContentPane().add(panel);
@@ -63,10 +63,10 @@ public class JWindow {
         //starts t1 after window is established(look into if this changes timing)
         t1.start();
 
-        try{
+        try {
             //joins t1 to window thread so when t1 is done...
             t1.join();
-        }catch(InterruptedException e){
+        } catch(InterruptedException e) {
             System.out.print("Interrupted Jeopardy");
         }
         //...the window becomes invisible

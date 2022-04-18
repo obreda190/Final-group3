@@ -9,11 +9,11 @@ public class Jeopardy {
 
         MenuWindow menu = new MenuWindow();
 
-        ArrayList<Category> cats = getAllCategories();
+        //ArrayList<Category> cats = getAllCategories();
 
-        ArrayList<Category> roundCat = getRoundCategories(cats);
+        //ArrayList<Category> roundCat = getRoundCategories(cats);
 
-        JWindow jeopardyWindow = new JWindow(roundCat, 1);
+        //JWindow jeopardyWindow = new JWindow(roundCat, 1);
 
         ArrayList<Player> play = new ArrayList<Player>();
         Player one = new Player("Jerry");
@@ -26,8 +26,9 @@ public class Jeopardy {
         ScoreBoard score = new ScoreBoard(play);
         score.start();
 
-        ArrayList<Category> roundCat2 = getRoundCategories(cats);
-        JWindow doubleWindow = new JWindow(roundCat2, 2);
+
+        //ArrayList<Category> roundCat2 = getRoundCategories(cats);
+        //JWindow doubleWindow = new JWindow(roundCat2, 2);
 
     }
 

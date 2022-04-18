@@ -20,17 +20,17 @@ public class ScoreBoard extends Thread {
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
         board.getRootPane().setBorder(blank);
 
-        for(int j = 0; j < this.players.size(); ++j) {
+        for(int j = 0; j < players.size(); ++j) {
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
             panel.setBorder(blackLine);
 
-            JLabel name = new JLabel("Player " + (j + 1) + ": " + this.players.get(j).getName(), SwingConstants.CENTER);
+            JLabel name = new JLabel("Player " + (j + 1) + ": " + players.get(j).getName(), SwingConstants.CENTER);
             name.setVerticalAlignment(SwingConstants.CENTER);
             name.setBorder(blank);
             panel.add(name);
 
-            JLabel score = new JLabel(String.valueOf(this.players.get(j).getScore()), SwingConstants.CENTER);
+            JLabel score = new JLabel(String.valueOf(players.get(j).getScore()), SwingConstants.CENTER);
             score.setVerticalAlignment(SwingConstants.CENTER);
             score.setBorder(blank);
             panel.add(score);
@@ -47,14 +47,14 @@ public class ScoreBoard extends Thread {
         board.setVisible(true);
     }
 
-    public void run(){
-        try{
+    @Override
+    public void run() {
+        try {
             Thread.sleep(5000);
-            board.repaint();
-        }catch(InterruptedException e){
+            board.getContentPane().repaint();
+        } catch (InterruptedException e) {
             System.out.println("Interrupt ScoreBoard");
         }
-        start();
     }
 
 }
