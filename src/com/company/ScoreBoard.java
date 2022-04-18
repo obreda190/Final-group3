@@ -20,7 +20,7 @@ public class ScoreBoard extends Thread {
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
         board.getRootPane().setBorder(blank);
 
-        for(int j = 0; j < players.size(); ++j) {
+        for (int j = 0; j < players.size(); ++j) {
 
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));

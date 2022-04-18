@@ -13,12 +13,14 @@ public class JWindow {
     private JFrame frame;
 
     public JWindow(ArrayList<Category> categories, int roundNum) throws InterruptedException {
+
+        Border blackLine = BorderFactory.createLineBorder(Color.black);
+        Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+
         this.categories = categories;
         this.roundNum = roundNum;
         //Timer being made
         Timers t1 = new Timers(RoundType.Jeopardy);
-        Border blackLine = BorderFactory.createLineBorder(Color.black);
-        Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         if (roundNum == 1) {
             frame = new JFrame("Jeopardy Round");
@@ -26,10 +28,11 @@ public class JWindow {
             frame = new JFrame("Double Jeopardy Round");
             doubleJeopardy();
         }
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getRootPane().setBorder(blank);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        for(Category c : categories) {
+        for (Category c : categories) {
+
             ArrayList<Question> questions = c.getQuestionsList();
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
@@ -98,5 +101,4 @@ public class JWindow {
             System.exit(0);
         }
     }
-
 }
