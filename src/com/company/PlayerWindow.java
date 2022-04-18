@@ -1,38 +1,45 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PlayerWindow {
+
     private JFrame frame;
     private JLabel label;
     private JTextField field;
-    private JButton butt;
+    private JButton button;
     private String name;
     private ArrayList<Player> players;
 
-    public PlayerWindow(ArrayList<Player> players){
+    public PlayerWindow(ArrayList<Player> players) {
+
+        Border blank = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+
         this.players = players;
         frame = new JFrame("Enter Name!");
 
         label = new JLabel("Please Enter Your Name: ");
+        label.setBorder(blank);
         frame.getContentPane().add(label);
 
         field = new JTextField(25);
         frame.getContentPane().add(field);
 
-        butt = new JButton("Done");
-        butt.addActionListener(new PlayerWindow.ButtonListener(field));
-        frame.getContentPane().add(butt);
+        button = new JButton("Done");
+        button.addActionListener(new PlayerWindow.ButtonListener(field));
+        frame.getContentPane().add(button);
 
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
+
     class ButtonListener implements ActionListener {
 
         private JTextField field;
@@ -47,7 +54,7 @@ public class PlayerWindow {
             players.add(play);
             frame.dispose();
 
-
+            //Return player somehow in order to create scoreboard
 
         }
     }
