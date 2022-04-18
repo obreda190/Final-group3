@@ -16,7 +16,6 @@ public class MenuWindow {
         menu = new JFrame("Main Menu");
         menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
         menu.getRootPane().setBorder(blank);
@@ -25,23 +24,33 @@ public class MenuWindow {
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         panel.setBorder(blackLine);
 
-        JLabel name = new JLabel("Rules");
-        name.setVerticalAlignment(SwingConstants.CENTER);
-        name.setBorder(blank);
-        panel.add(name);
+        JLabel title = new JLabel("This Is Jeopardy!");
+        title.setVerticalAlignment(SwingConstants.CENTER);
+        title.setBorder(blank);
+        panel.add(title);
 
-        JLabel score = new JLabel("Rules here");
-        score.setVerticalAlignment(SwingConstants.CENTER);
-        score.setBorder(blank);
-        panel.add(score);
+        JLabel game = new JLabel("How the game works:");
+        game.setVerticalAlignment(SwingConstants.CENTER);
+        game.setBorder(blank);
+        panel.add(game);
+
+        //Add component that reads from Game.txt
+
+        JLabel rules = new JLabel("Rules:");
+        rules.setVerticalAlignment(SwingConstants.CENTER);
+        rules.setBorder(blank);
+        panel.add(rules);
+
+        //Add component that reads from Rules.txt
 
         JButton button = new JButton("Start!");
         button.addActionListener(new MenuWindow.ButtonListener());
         panel.add(button);
 
+        title.setAlignmentX(Box.CENTER_ALIGNMENT);
+        game.setAlignmentX(Box.CENTER_ALIGNMENT);
+        rules.setAlignmentX(Box.CENTER_ALIGNMENT);
         button.setAlignmentX(Box.CENTER_ALIGNMENT);
-        name.setAlignmentX(Box.CENTER_ALIGNMENT);
-        score.setAlignmentX(Box.CENTER_ALIGNMENT);
 
         menu.getContentPane().add(panel);
 
@@ -52,9 +61,6 @@ public class MenuWindow {
         menu.setVisible(true);
 
         this. t = Thread.currentThread();
-
-
-
 
     }
 
