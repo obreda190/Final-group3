@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class MenuWindow {
+
     private JFrame menu;
     private JTextField text;
     private Thread t;
@@ -53,8 +54,6 @@ public class MenuWindow {
         button.setAlignmentX(Box.CENTER_ALIGNMENT);
 
         menu.getContentPane().add(panel);
-
-
         menu.getContentPane().setLayout(new FlowLayout());
         menu.pack();
         menu.setLocationRelativeTo(null);

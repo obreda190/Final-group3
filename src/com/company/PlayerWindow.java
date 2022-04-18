@@ -14,7 +14,7 @@ public class PlayerWindow {
     private ArrayList<Player> players;
 
     public PlayerWindow(ArrayList<Player> players){
-        this.players =players;
+        this.players = players;
         frame = new JFrame("Enter Name!");
 
         label = new JLabel("Please Enter Your Name: ");
