@@ -92,8 +92,6 @@ public class JWindow {
             button.removeActionListener((ActionListener) Array.get(a, 0));
             button.setText("");
         }
-
-        //Disable buttons
     }
 
     public void doubleJeopardy() {
