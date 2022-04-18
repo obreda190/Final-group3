@@ -70,9 +70,10 @@ public class MenuWindow {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+
             ArrayList<Player> p = new ArrayList<>();
 
-            for(int m = 0; m<3; m++){
+            for (int m = 0; m<3; m++) {
                 PlayerWindow pw = new PlayerWindow(p);
             }
 

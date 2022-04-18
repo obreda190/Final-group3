@@ -17,7 +17,7 @@ public class AskWindow {
 
     public AskWindow(Question q) {
 
-        Border b = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+        Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         this.category = q.getCat();
         question = q;
@@ -26,7 +26,7 @@ public class AskWindow {
         frame.getContentPane().add(Box.createVerticalStrut(10));
 
         label = new JLabel(question.getQuestion());
-        label.setBorder(b);
+        label.setBorder(blank);
         frame.getContentPane().add(label);
         label.setAlignmentX(Box.CENTER_ALIGNMENT);
 

@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.event.*;
 
 public class QuestionWindow {
@@ -14,15 +15,20 @@ public class QuestionWindow {
     private JButton button;
 
     public QuestionWindow(Question q, String player) {
+
+        Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+
         this.category = q.getCat();
         question = q;
 
         frame = new JFrame(category);
 
         name = new JLabel(player);
+        name.setBorder(blank);
         frame.getContentPane().add(name);
 
         label = new JLabel(question.getQuestion());
+        label.setBorder(blank);
         frame.getContentPane().add(label);
 
         tf = new JTextField(25);
@@ -39,10 +45,12 @@ public class QuestionWindow {
     }
 
     public boolean checkAnswer(String response) {
-        boolean check;
-        String answer = question.getAnswer().toLowerCase();
 
+        boolean check;
+
+        String answer = question.getAnswer().toLowerCase();
         check = answer.equals(response.toLowerCase());
+
         return check;
     }
 
@@ -55,8 +63,10 @@ public class QuestionWindow {
         }
 
         public void actionPerformed(ActionEvent e) {
+
             String getValue = tf.getText();
             boolean check = checkAnswer(getValue);
+
             if (check) {
                 //call method to add points to player's score
                 System.out.println("Correct"); //Not permanent, just for testing purposes
@@ -74,5 +84,4 @@ public class QuestionWindow {
             System.exit(0);
         }
     }
-
 }

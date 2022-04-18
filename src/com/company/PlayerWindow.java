@@ -49,6 +49,7 @@ public class PlayerWindow {
         }
 
         public void actionPerformed(ActionEvent e) {
+
             String name = field.getText();
             Player play = new Player(name);
             players.add(play);
