@@ -21,6 +21,7 @@ public class ScoreBoard extends Thread {
         board.getRootPane().setBorder(blank);
 
         for(int j = 0; j < players.size(); ++j) {
+
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
             panel.setBorder(blackLine);
@@ -47,6 +48,7 @@ public class ScoreBoard extends Thread {
         board.setVisible(true);
     }
 
+    //Needs to be its own thread in order to stay open and update the whole time
     @Override
     public void run() {
         try {
@@ -56,5 +58,4 @@ public class ScoreBoard extends Thread {
             System.out.println("Interrupt ScoreBoard");
         }
     }
-
 }
