@@ -8,6 +8,10 @@ public class Jeopardy {
     public static void main(String[] args) throws InterruptedException {
 
         MenuWindow menu = new MenuWindow();
+        //Below makes it so until this window is interrupted it will display the menu.
+        //Thread m = menu.getThread();
+        //m.join();
+
 
         ArrayList<Category> cats = getAllCategories();
 

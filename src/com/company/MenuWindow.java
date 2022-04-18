@@ -5,10 +5,12 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class MenuWindow {
     private JFrame menu;
     private JTextField text;
+    private Thread t;
 
     public MenuWindow(){
         menu = new JFrame("Main Menu");
@@ -34,7 +36,7 @@ public class MenuWindow {
         panel.add(score);
 
         JButton button = new JButton("Start!");
-        //button.addActionListener(new MenuWindow.ButtonListener());
+        button.addActionListener(new MenuWindow.ButtonListener());
         panel.add(button);
 
         button.setAlignmentX(Box.CENTER_ALIGNMENT);
@@ -49,18 +51,29 @@ public class MenuWindow {
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
 
+        this. t = Thread.currentThread();
+
+
+
 
     }
 
-
-   // class ButtonListener implements ActionListener {
-
-        //public void actionPreformed(ActionEvent e){
+    public Thread getThread(){return this.t;}
 
 
+    class ButtonListener implements ActionListener {
 
 
-       // }
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ArrayList<Player> p = new ArrayList<>();
 
-   // }
+            for(int m = 0; m<3; m++){
+                PlayerWindow pw = new PlayerWindow(p);
+            }
+
+            //Interrupted here
+
+        }
+    }
 }
