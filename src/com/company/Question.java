@@ -11,6 +11,7 @@ public class Question {
     boolean asked;
 
     public Question(Scanner in, String category) {
+
         this.category = category;
 
         question = in.nextLine();
@@ -53,10 +54,11 @@ public class Question {
         String data = "";
         data = data + points;
         return data;
-    };
+    }
 
     @Override
     public String toString() {
+
         String data = "";
         data = data + question + "\n";
         data = data + answer + "\n";
@@ -65,5 +67,4 @@ public class Question {
 
         return data;
     }
-
 }
