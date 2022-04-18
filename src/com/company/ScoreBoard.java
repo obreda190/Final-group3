@@ -48,6 +48,8 @@ public class ScoreBoard extends Thread {
         board.setVisible(true);
     }
 
+    //See who is in the lead
+
     //Needs to be its own thread in order to stay open and update the whole time
     @Override
     public void run() {
