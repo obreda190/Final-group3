@@ -3,17 +3,19 @@ package com.company;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class PlayerWindow {
-
     private JFrame frame;
     private JLabel label;
     private JTextField field;
     private JButton butt;
     private String name;
+    private ArrayList<Player> players;
 
-    public PlayerWindow() {
-        frame = new JFrame("Enter Name:");
+    public PlayerWindow(ArrayList<Player> players){
+        this.players =players;
+        frame = new JFrame("Enter Name!");
 
         label = new JLabel("Please Enter Your Name: ");
         frame.getContentPane().add(label);
@@ -29,8 +31,8 @@ public class PlayerWindow {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }
 
+    }
     class ButtonListener implements ActionListener {
 
         private JTextField field;
@@ -42,7 +44,8 @@ public class PlayerWindow {
         public void actionPerformed(ActionEvent e) {
             String name = field.getText();
             Player play = new Player(name);
-            //definitely not done
+            players.add(play);
+
 
 
         }
