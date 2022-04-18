@@ -30,15 +30,16 @@ public class AskWindow {
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-        b1 = new JButton("Player 1");
-        b2 = new JButton("Player 2");
-        b3 = new JButton("Player 3");
+        b1 = new JButton("Player 1"); //Get name of player 1 for the name of the button
+        b2 = new JButton("Player 2"); //Get name of player 2 for the name of the button
+        b3 = new JButton("Player 3"); //Get name of player 3 for the name of the button
         panel.add(b1);
         b1.addActionListener(new ButtonListener(b1.getText()));
         panel.add(b2);
         b2.addActionListener(new ButtonListener(b2.getText()));
         panel.add(b3);
         b3.addActionListener(new ButtonListener(b3.getText()));
+
         frame.getContentPane().add(panel);
         frame.getContentPane().add(Box.createVerticalStrut(10));
 

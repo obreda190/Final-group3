@@ -14,30 +14,31 @@ public class MenuWindow {
     private Thread t;
 
     public MenuWindow(){
-        menu = new JFrame("Main Menu");
-        menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+
+        menu = new JFrame("Main Menu");
         menu.getRootPane().setBorder(blank);
+        menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         panel.setBorder(blackLine);
 
-        JLabel title = new JLabel("This Is Jeopardy!");
+        JLabel title = new JLabel("This Is Jeopardy!", SwingConstants.CENTER);
         title.setVerticalAlignment(SwingConstants.CENTER);
         title.setBorder(blank);
         panel.add(title);
 
-        JLabel game = new JLabel("How the game works:");
+        JLabel game = new JLabel("How the game works:", SwingConstants.CENTER);
         game.setVerticalAlignment(SwingConstants.CENTER);
         game.setBorder(blank);
         panel.add(game);
 
         //Add component that reads from Game.txt
 
-        JLabel rules = new JLabel("Rules:");
+        JLabel rules = new JLabel("Rules:", SwingConstants.CENTER);
         rules.setVerticalAlignment(SwingConstants.CENTER);
         rules.setBorder(blank);
         panel.add(rules);
@@ -54,20 +55,18 @@ public class MenuWindow {
         button.setAlignmentX(Box.CENTER_ALIGNMENT);
 
         menu.getContentPane().add(panel);
-        menu.getContentPane().setLayout(new FlowLayout());
         menu.pack();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
 
-        this. t = Thread.currentThread();
-
+        t = Thread.currentThread();
     }
 
-    public Thread getThread(){return this.t;}
-
+    public Thread getThread() {
+        return this.t;
+    }
 
     class ButtonListener implements ActionListener {
-
 
         @Override
         public void actionPerformed(ActionEvent e) {
