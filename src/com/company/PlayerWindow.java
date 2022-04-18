@@ -45,6 +45,7 @@ public class PlayerWindow {
             String name = field.getText();
             Player play = new Player(name);
             players.add(play);
+            frame.dispose();
 
 
 

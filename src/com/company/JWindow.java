@@ -70,7 +70,7 @@ public class JWindow {
             System.out.print("Interrupted Jeopardy");
         }
         //...the window becomes invisible
-        frame.setVisible(false);
+        frame.dispose();
     }
 
     class ButtonListener implements ActionListener {
