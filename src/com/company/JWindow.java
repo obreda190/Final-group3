@@ -1,6 +1,7 @@
 package com.company;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -45,7 +46,7 @@ public class JWindow {
                 JPanel p = new JPanel();
                 p.setLayout(new BorderLayout());
                 JButton button = new JButton(q.pointString());
-                button.addActionListener(new ButtonListener(q));
+                button.addActionListener(new ButtonListener(q, button));
                 p.add(button, BorderLayout.CENTER);
                 panel.add(p);
             }
@@ -76,13 +77,20 @@ public class JWindow {
     class ButtonListener implements ActionListener {
 
         private Question question;
+        private JButton button;
 
-        public ButtonListener(Question question) {
+        public ButtonListener(Question question, JButton button) {
             this.question = question;
+            this.button = button;
         }
 
         public void actionPerformed(ActionEvent e) {
+
             AskWindow aw = new AskWindow(question);
+
+            ActionListener a[] = button.getActionListeners();
+            button.removeActionListener((ActionListener) Array.get(a, 0));
+            button.setText("");
         }
 
         //Disable buttons
