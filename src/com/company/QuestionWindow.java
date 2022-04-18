@@ -16,7 +16,7 @@ public class QuestionWindow {
 
     public QuestionWindow(Question q, String player) {
 
-        Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+        Border blank = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 
         this.category = q.getCat();
         question = q;
@@ -31,7 +31,7 @@ public class QuestionWindow {
         label.setBorder(blank);
         frame.getContentPane().add(label);
 
-        tf = new JTextField(25);
+        tf = new JTextField(20);
         frame.getContentPane().add(tf);
 
         button = new JButton("Done");
@@ -69,12 +69,13 @@ public class QuestionWindow {
 
             if (check) {
                 //call method to add points to player's score
-                System.out.println("Correct"); //Not permanent, just for testing purposes
+                JOptionPane.showMessageDialog(null, "Correct! Points have been added to your score.");
             } else {
                 //call method to subtract points to player's score
-                System.out.println("Incorrect, the correct answer was: " + question.getAnswer()); //Not permanent, just for testing purposes
+                JOptionPane.showMessageDialog(null, "Incorrect, the correct answer was: " + question.getAnswer() +
+                        ". Points have been deducted");
             }
-            //Dispose QuestionWindow
+            frame.dispose();
             //Dispose AskWindow
         }
     }

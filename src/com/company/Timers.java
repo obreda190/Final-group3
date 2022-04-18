@@ -15,12 +15,12 @@ public class Timers extends Thread {
         //Timer for rounds (regular jeopardy/double jeopardy possibly final?)
         if (rt == RoundType.Jeopardy) {
             try {
-                //sleep for 5 seconds for testing
-                Thread.sleep(5000);
+                //sleep for 10 seconds for testing
+                Thread.sleep(10000);
                 //warning for a min
                 JOptionPane.showMessageDialog(null,"One minute remaining","Warning", JOptionPane.WARNING_MESSAGE);
-                //sleep for another 5 seconds for testing
-                Thread.sleep(5000);
+                //sleep for another 10 seconds for testing
+                Thread.sleep(10000);
 
             } catch (InterruptedException e) {
                 System.out.println("Timer Interrupted");

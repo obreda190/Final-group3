@@ -68,6 +68,7 @@ public class AskWindow {
 
         public void actionPerformed(ActionEvent e) {
             QuestionWindow qw = new QuestionWindow(question, name);
+            frame.dispose();
         }
     }
 }
