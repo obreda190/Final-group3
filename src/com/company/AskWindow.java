@@ -16,9 +16,11 @@ public class AskWindow {
     private JButton b3;
 
     public AskWindow(Question q) {
+
+        Border b = BorderFactory.createEmptyBorder(10, 10, 10, 10);
+
         this.category = q.getCat();
         question = q;
-        Border b = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         frame = new JFrame(category);
         frame.getContentPane().add(Box.createVerticalStrut(10));
@@ -30,19 +32,21 @@ public class AskWindow {
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+
         b1 = new JButton("Player 1"); //Get name of player 1 for the name of the button
-        b2 = new JButton("Player 2"); //Get name of player 2 for the name of the button
-        b3 = new JButton("Player 3"); //Get name of player 3 for the name of the button
         panel.add(b1);
         b1.addActionListener(new ButtonListener(b1.getText()));
+
+        b2 = new JButton("Player 2"); //Get name of player 2 for the name of the button
         panel.add(b2);
         b2.addActionListener(new ButtonListener(b2.getText()));
+
+        b3 = new JButton("Player 3"); //Get name of player 3 for the name of the button
         panel.add(b3);
         b3.addActionListener(new ButtonListener(b3.getText()));
 
         frame.getContentPane().add(panel);
         frame.getContentPane().add(Box.createVerticalStrut(10));
-
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -61,5 +65,4 @@ public class AskWindow {
             QuestionWindow qw = new QuestionWindow(question, name);
         }
     }
-
 }
