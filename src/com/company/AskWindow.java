@@ -24,6 +24,8 @@ public class AskWindow {
 
     public AskWindow(Question q) {
 
+        Timers t1 = new Timers(RoundType.Question);
+
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         this.category = q.getCat();
@@ -70,7 +72,13 @@ public class AskWindow {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        //join timer
+        t1.start();
+        try{
+            t1.join();
+        }catch(InterruptedException e){
+            System.out.println("");
+        }
+        frame.dispose();
     }
 
     class ButtonListener implements ActionListener {

@@ -51,16 +51,20 @@ public class ScoreBoard extends Thread {
     //See who is in the lead
 
     //Needs to be its own thread in order to stay open and update the whole time
-    @Override
-    public void run() {
+
+    public void reScore(){
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
             board.getContentPane().repaint();
         } catch (InterruptedException e) {
             System.out.println("Interrupt ScoreBoard");
         }
-        //start();
+        reScore();
 
-        //Runs until game is over after it goes past a certain time
+    }
+    @Override
+    public void run() {
+        reScore();
+
     }
 }

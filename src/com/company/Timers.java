@@ -15,22 +15,18 @@ public class Timers extends Thread {
         //Timer for rounds (regular jeopardy/double jeopardy possibly final?)
         if (rt == RoundType.Jeopardy) {
             try {
-                //sleep for 10 seconds for testing
                 Thread.sleep(10000);
-                //warning for a min
                 JOptionPane.showMessageDialog(null,"One minute remaining","Warning", JOptionPane.WARNING_MESSAGE);
-                //sleep for another 10 seconds for testing
                 Thread.sleep(10000);
 
             } catch (InterruptedException e) {
                 System.out.println("Timer Interrupted");
             }
-            //add question timer and final timer if necessary
 
         } else if (rt == RoundType.Question) {
             try {
                 Thread.sleep(5000);
-                JOptionPane.showMessageDialog(null,"Sorry! Too slow... points were deducted","Sorry!", JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(null,"Sorry! Too slow","Sorry!", JOptionPane.PLAIN_MESSAGE);
                 //subtract points from player who buzzed in
             } catch (InterruptedException e) {
                 System.out.println("Timer Interrupted");
