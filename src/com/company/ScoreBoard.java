@@ -59,5 +59,8 @@ public class ScoreBoard extends Thread {
         } catch (InterruptedException e) {
             System.out.println("Interrupt ScoreBoard");
         }
+        //start();
+
+        //Runs until game is over after it goes past a certain time
     }
 }

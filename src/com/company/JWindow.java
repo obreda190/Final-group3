@@ -7,17 +7,20 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.event.*;
 
-public class JWindow {
+public class JWindow extends Thread {
 
     private ArrayList<Category> categories;
     private JFrame frame;
+    private int roundNum;
 
-    public JWindow(ArrayList<Category> categories, int roundNum) throws InterruptedException {
-
+    public JWindow(ArrayList<Category> categories, int roundNum) {
+        this.categories = categories;
+        this.roundNum = roundNum;
+    }
+    public void run(){
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
-        this.categories = categories;
         //Timer being made
         Timers t1 = new Timers(RoundType.Jeopardy);
 
@@ -73,6 +76,7 @@ public class JWindow {
         //...the window becomes invisible
         frame.dispose();
     }
+
 
     class ButtonListener implements ActionListener {
 

@@ -1,44 +1,42 @@
 package com.company;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 
-//Make into runnable
-public class PlayerWindow {
-
+public class PlayerWindow extends Thread {
     private JFrame frame;
     private JLabel label;
     private JTextField field;
-    private JButton button;
-    private String name;
+    private JButton butt;
     private ArrayList<Player> players;
+    private JWindow jWind;
+    private JWindow jDWind;
 
-    public PlayerWindow(ArrayList<Player> players) {
-
-        Border blank = BorderFactory.createEmptyBorder(5, 5, 5, 5);
-
+    public PlayerWindow(ArrayList<Player> players, JWindow jWind, JWindow jDWind) {
         this.players = players;
+        this.jWind = jWind;
+        this.jDWind = jDWind;
+    }
+    public void run(){
         frame = new JFrame("Enter Name!");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         label = new JLabel("Please Enter Your Name: ");
-        label.setBorder(blank);
         frame.getContentPane().add(label);
 
         field = new JTextField(25);
         frame.getContentPane().add(field);
 
-        button = new JButton("Done");
-        button.addActionListener(new PlayerWindow.ButtonListener(field));
-        frame.getContentPane().add(button);
+        butt = new JButton("Done");
+        butt.addActionListener(new PlayerWindow.ButtonListener(field));
+        frame.getContentPane().add(butt);
 
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
     }
 
     class ButtonListener implements ActionListener {
@@ -50,14 +48,20 @@ public class PlayerWindow {
         }
 
         public void actionPerformed(ActionEvent e) {
-
             String name = field.getText();
             Player play = new Player(name);
             players.add(play);
             frame.dispose();
 
-            //Return player somehow in order to create scoreboard
+
+
+            jWind.start();
+
+            jDWind.start();
+
+
 
         }
     }
+
 }
