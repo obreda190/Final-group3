@@ -57,7 +57,7 @@ public class QuestionWindow {
         }catch(InterruptedException e){
             System.out.println("Timer Interrupted");
         }
-        frame.dispose();
+        //frame.dispose();
 
     }
 

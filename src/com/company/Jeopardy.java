@@ -7,21 +7,15 @@ import java.util.*;
 public class Jeopardy {
 
     public static void main(String[] args) throws InterruptedException {
+        ArrayList<Player> play = new ArrayList<>();
+        ArrayList<Category> cats = getAllCategories();
+        ArrayList<Category> roundCat = getRoundCategories(cats);
+        JWindow jeopardyWindow = new JWindow(roundCat);
+        PlayerWindow player = new PlayerWindow(play,jeopardyWindow);
+        MenuWindow menu = new MenuWindow(player);
 
-        //MenuWindow menu = new MenuWindow();
-        //Thread mt = new Thread(menu);
-        //mt.start();
-        //mt.join();
 
-        //ArrayList<Category> cats = getAllCategories();
-        //ArrayList<Category> roundCat = getRoundCategories(cats);
-        //ArrayList<Category> roundCat2 = getRoundCategories(cats);
-        //JWindow jeopardyWindow = new JWindow(roundCat, 1);
-        //jeopardyWindow.start();
-        //jeopardyWindow.join();
-        //JWindow doubleWindow = new JWindow(roundCat2, 2);
-        //doubleWindow.start();
-        //doubleWindow.join();
+
 
         System.out.println("DONE");
     }

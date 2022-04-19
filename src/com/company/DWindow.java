@@ -7,39 +7,40 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.event.*;
 
-public class JWindow extends Thread {
+public class DWindow extends Thread {
 
     private ArrayList<Category> categories;
     private JFrame frame;
 
-    public JWindow(ArrayList<Category> categories) {
+    public DWindow(ArrayList<Category> categories) {
         this.categories = categories;
     }
-        public void run(){
+
+    public void run() {
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
-        //Timer being made
         Timers t1 = new Timers(RoundType.Jeopardy);
 
-        frame = new JFrame("Jeopardy Round");
+        frame = new JFrame("Double Jeopardy Round");
 
         frame.getRootPane().setBorder(blank);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         for (Category c : categories) {
+            c.doubleJeopardy();
 
             ArrayList<Question> questions = c.getQuestionsList();
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-            JLabel cat = new JLabel("<html><p>"+c.getName()+"</p></html>", SwingConstants.CENTER);
+            JLabel cat = new JLabel("<html><p>" + c.getName() + "</p></html>", SwingConstants.CENTER);
             cat.setVerticalAlignment(SwingConstants.CENTER);
             cat.setBorder(blank);
             panel.add(cat);
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
-            for(Question q : questions) {
+            for (Question q : questions) {
                 JPanel p = new JPanel();
                 p.setLayout(new BorderLayout());
                 JButton button = new JButton(q.pointString());
@@ -59,18 +60,13 @@ public class JWindow extends Thread {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        //starts t1 after window is established(look into if this changes timing)
+
         t1.start();
         try {
-            //joins t1 to window thread so when t1 is done...
             t1.join();
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             System.out.print("Interrupted Jeopardy");
         }
-        //...the window becomes invisible
-        frame.setVisible(false);
-        DWindow doubleJeopardy = new DWindow(categories);
-        doubleJeopardy.start();
         frame.dispose();
 
     }
@@ -94,4 +90,6 @@ public class JWindow extends Thread {
             button.setText("");
         }
     }
+
 }
+

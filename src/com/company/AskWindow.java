@@ -78,7 +78,7 @@ public class AskWindow {
         }catch(InterruptedException e){
             System.out.println("");
         }
-        frame.dispose();
+        //frame.dispose();
     }
 
     class ButtonListener implements ActionListener {

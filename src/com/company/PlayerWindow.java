@@ -11,12 +11,10 @@ public class PlayerWindow extends Thread {
     private JButton butt;
     private ArrayList<Player> players;
     private JWindow jWind;
-    private JWindow jDWind;
 
-    public PlayerWindow(ArrayList<Player> players, JWindow jWind, JWindow jDWind) {
+    public PlayerWindow(ArrayList<Player> players, JWindow jWind) {
         this.players = players;
         this.jWind = jWind;
-        this.jDWind = jDWind;
     }
     public void run(){
         frame = new JFrame("Enter Name!");
@@ -53,11 +51,7 @@ public class PlayerWindow extends Thread {
             players.add(play);
             frame.dispose();
 
-
-
             jWind.start();
-
-            jDWind.start();
 
 
 
