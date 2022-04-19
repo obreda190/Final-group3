@@ -13,20 +13,22 @@ public class QuestionWindow {
     private JLabel label;
     private JTextField tf;
     private JButton button;
+    private Player player;
 
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private Action enterAction;
 
-    public QuestionWindow(Question q, String player) {
+    public QuestionWindow(Question q, Player p) {
 
         Border blank = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 
         this.category = q.getCat();
         question = q;
+        player = p;
 
         frame = new JFrame(category);
 
-        name = new JLabel(player);
+        name = new JLabel(p.getName());
         name.setBorder(blank);
         frame.getContentPane().add(name);
 
@@ -75,15 +77,14 @@ public class QuestionWindow {
             boolean check = checkAnswer(getValue);
 
             if (check) {
-                //call method to add points to player's score
+                player.addPoints(question.getPoints());
                 JOptionPane.showMessageDialog(null, "Correct! Points have been added to your score.");
             } else {
-                //call method to subtract points to player's score
+                player.subtractPoints(question.getPoints());
                 JOptionPane.showMessageDialog(null, "Incorrect, the correct answer was: " + question.getAnswer() +
                         ". Points have been deducted");
             }
             frame.dispose();
-            //Dispose AskWindow
         }
     }
 

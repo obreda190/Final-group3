@@ -10,10 +10,15 @@ import java.awt.event.*;
 public class JWindow extends Thread {
 
     private ArrayList<Category> categories;
+    private ArrayList<Player> players;
     private JFrame frame;
 
     public JWindow(ArrayList<Category> categories) {
         this.categories = categories;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
     }
 
     public void run() {
@@ -71,7 +76,7 @@ public class JWindow extends Thread {
         //...the window becomes invisible
         frame.setVisible(false);
 
-        DWindow doubleJeopardy = new DWindow(categories);
+        DWindow doubleJeopardy = new DWindow(categories, players);
         doubleJeopardy.start();
         frame.dispose();
     }
@@ -88,7 +93,7 @@ public class JWindow extends Thread {
 
         public void actionPerformed(ActionEvent e) {
 
-            AskWindow aw = new AskWindow(question);
+            AskWindow aw = new AskWindow(question, players);
 
             ActionListener a[] = button.getActionListeners();
             button.removeActionListener((ActionListener) Array.get(a, 0));

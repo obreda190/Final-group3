@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class AskWindow {
 
@@ -15,12 +16,21 @@ public class AskWindow {
     private JButton b2;
     private JButton b3;
 
+    private ArrayList<Player> players;
+    private Player p1;
+    private Player p2;
+    private Player p3;
+
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
     private Action qPress;
     private Action bPress;
     private Action pPress;
 
-    public AskWindow(Question q) {
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
+
+    public AskWindow(Question q, ArrayList<Player> players) {
 
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
@@ -38,23 +48,23 @@ public class AskWindow {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
 
-        b1 = new JButton("Player 1" + ": Q"); //Get name of player 1 for the name of the button
+        b1 = new JButton((players.get(0)).getName() + ": Q"); //Get name of player 1 for the name of the button
         panel.add(b1);
-        b1.addActionListener(new ButtonListener(b1.getText()));
+        b1.addActionListener(new ButtonListener(players.get(0)));
         qPress = new QPress();
         b1.getInputMap(IFW).put(KeyStroke.getKeyStroke('q'), "qPress");
         b1.getActionMap().put("qPress", qPress);
 
-        b2 = new JButton("Player 2" + ": B"); //Get name of player 2 for the name of the button
+        b2 = new JButton((players.get(1)).getName() + ": B"); //Get name of player 2 for the name of the button
         panel.add(b2);
-        b2.addActionListener(new ButtonListener(b2.getText()));
+        b2.addActionListener(new ButtonListener(players.get(1)));
         bPress = new BPress();
         b2.getInputMap(IFW).put(KeyStroke.getKeyStroke('b'), "bPress");
         b2.getActionMap().put("bPress", bPress);
 
-        b3 = new JButton("Player 3" + ": P"); //Get name of player 3 for the name of the button
+        b3 = new JButton((players.get(2)).getName() + ": P"); //Get name of player 3 for the name of the button
         panel.add(b3);
-        b3.addActionListener(new ButtonListener(b3.getText()));
+        b3.addActionListener(new ButtonListener(players.get(2)));
         pPress = new PPress();
         b3.getInputMap(IFW).put(KeyStroke.getKeyStroke('p'), "pPress");
         b3.getActionMap().put("pPress", pPress);
@@ -70,14 +80,14 @@ public class AskWindow {
 
     class ButtonListener implements ActionListener {
 
-        private String name;
+        private Player p;
 
-        public ButtonListener(String name) {
-            this.name = name;
+        public ButtonListener(Player p) {
+            this.p = p;
         }
 
         public void actionPerformed(ActionEvent e) {
-            QuestionWindow qw = new QuestionWindow(question, name);
+            QuestionWindow qw = new QuestionWindow(question, p);
             frame.dispose();
         }
     }

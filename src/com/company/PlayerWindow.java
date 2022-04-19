@@ -7,9 +7,13 @@ import java.util.ArrayList;
 public class PlayerWindow extends Thread {
 
     private JFrame frame;
-    private JLabel label;
-    private JTextField field;
-    private JButton butt;
+    private JLabel p1;
+    private JLabel p2;
+    private JLabel p3;
+    private JTextField f1;
+    private JTextField f2;
+    private JTextField f3;
+    private JButton button;
     private ArrayList<Player> players;
     private JWindow jWind;
 
@@ -23,15 +27,27 @@ public class PlayerWindow extends Thread {
         frame = new JFrame("Enter Name!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        label = new JLabel("Please Enter Your Name: ");
-        frame.getContentPane().add(label);
+        p1 = new JLabel("Player 1, please enter your name: ");
+        frame.getContentPane().add(p1);
 
-        field = new JTextField(25);
-        frame.getContentPane().add(field);
+        f1 = new JTextField(20);
+        frame.getContentPane().add(f1);
 
-        butt = new JButton("Done");
-        butt.addActionListener(new PlayerWindow.ButtonListener(field));
-        frame.getContentPane().add(butt);
+        p2 = new JLabel("Player 2, please enter your name: ");
+        frame.getContentPane().add(p2);
+
+        f2 = new JTextField(20);
+        frame.getContentPane().add(f2);
+
+        p3 = new JLabel("Player 3, please enter your name: ");
+        frame.getContentPane().add(p3);
+
+        f3 = new JTextField(20);
+        frame.getContentPane().add(f3);
+
+        button = new JButton("Done");
+        button.addActionListener(new PlayerWindow.ButtonListener(f1, f2, f3));
+        frame.getContentPane().add(button);
 
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.pack();
@@ -41,18 +57,31 @@ public class PlayerWindow extends Thread {
 
     class ButtonListener implements ActionListener {
 
-        private JTextField field;
+        private JTextField f1;
+        private JTextField f2;
+        private JTextField f3;
 
-        public ButtonListener(JTextField field) {
-            this.field = field;
+        public ButtonListener(JTextField f1, JTextField f2, JTextField f3) {
+            this.f1 = f1;
+            this.f2 = f2;
+            this.f3 = f3;
         }
 
         public void actionPerformed(ActionEvent e) {
-            String name = field.getText();
-            Player play = new Player(name);
-            players.add(play);
-            frame.dispose();
+            String n1 = f1.getText();
+            Player p1 = new Player(n1);
+            players.add(p1);
 
+            String n2 = f2.getText();
+            Player p2 = new Player(n2);
+            players.add(p2);
+
+            String n3 = f3.getText();
+            Player p3 = new Player(n3);
+            players.add(p3);
+
+            frame.dispose();
+            jWind.setPlayers(players);
             jWind.start();
         }
     }

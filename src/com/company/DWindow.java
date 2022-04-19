@@ -10,10 +10,12 @@ import java.awt.event.*;
 public class DWindow extends Thread {
 
     private ArrayList<Category> categories;
+    private ArrayList<Player> players;
     private JFrame frame;
 
-    public DWindow(ArrayList<Category> categories) {
+    public DWindow(ArrayList<Category> categories, ArrayList<Player> players) {
         this.categories = categories;
+        this.players = players;
     }
 
     public void run() {
@@ -83,7 +85,7 @@ public class DWindow extends Thread {
 
         public void actionPerformed(ActionEvent e) {
 
-            AskWindow aw = new AskWindow(question);
+            AskWindow aw = new AskWindow(question, players);
 
             ActionListener a[] = button.getActionListeners();
             button.removeActionListener((ActionListener) Array.get(a, 0));
