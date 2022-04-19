@@ -8,14 +8,14 @@ public class Jeopardy {
 
     public static void main(String[] args) throws InterruptedException {
 
-        MenuWindow menu = new MenuWindow();
-        Thread mt = new Thread(menu);
-        mt.start();
-        mt.join();
+        //MenuWindow menu = new MenuWindow();
+        //Thread mt = new Thread(menu);
+        //mt.start();
+        //mt.join();
 
-        ArrayList<Category> cats = getAllCategories();
-        ArrayList<Category> roundCat = getRoundCategories(cats);
-        ArrayList<Category> roundCat2 = getRoundCategories(cats);
+        //ArrayList<Category> cats = getAllCategories();
+        //ArrayList<Category> roundCat = getRoundCategories(cats);
+        //ArrayList<Category> roundCat2 = getRoundCategories(cats);
         //JWindow jeopardyWindow = new JWindow(roundCat, 1);
         //jeopardyWindow.start();
         //jeopardyWindow.join();
