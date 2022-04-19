@@ -14,6 +14,9 @@ public class QuestionWindow {
     private JTextField tf;
     private JButton button;
 
+    private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+    private Action enterAction;
+
     public QuestionWindow(Question q, String player) {
 
         Border blank = BorderFactory.createEmptyBorder(5, 5, 5, 5);
@@ -37,8 +40,12 @@ public class QuestionWindow {
         button = new JButton("Done");
         button.addActionListener(new ButtonListener(tf));
         frame.getContentPane().add(button);
+        enterAction = new EnterAction();
+        button.getInputMap(IFW).put(KeyStroke.getKeyStroke("ENTER"), "enterAction");
+        button.getActionMap().put("enterAction", enterAction);
 
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+        tf.requestFocus();
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -77,6 +84,14 @@ public class QuestionWindow {
             }
             frame.dispose();
             //Dispose AskWindow
+        }
+    }
+
+    public class EnterAction extends AbstractAction {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            button.requestFocus();
+            button.doClick();
         }
     }
 }
