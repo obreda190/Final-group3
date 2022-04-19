@@ -11,8 +11,10 @@ public class MenuWindow {
 
     private JFrame menu;
     private Thread t;
+    private PlayerWindow pw;
 
-    public MenuWindow() {
+    public MenuWindow(PlayerWindow pw) {
+        this.pw=pw;
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
@@ -58,25 +60,17 @@ public class MenuWindow {
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
 
-        t = Thread.currentThread();
     }
 
-    public Thread getThread() {
-        return this.t;
-    }
 
     class ButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            menu.dispose();
+            pw.start();
 
-            ArrayList<Player> p = new ArrayList<>();
 
-            for (int m = 0; m<3; m++) {
-                PlayerWindow pw = new PlayerWindow(p);
-            }
-
-            //Interrupted here
 
         }
     }

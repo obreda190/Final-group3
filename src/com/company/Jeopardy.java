@@ -6,18 +6,18 @@ import java.util.*;
 public class Jeopardy {
 
     public static void main(String[] args) throws InterruptedException {
-
-        //MenuWindow menu = new MenuWindow();
-        //Below makes it so until this window is interrupted it will display the menu.
-        //Thread m = menu.getThread();
-        //m.join();
-
+        ArrayList<Player> play = new ArrayList<Player>();
         ArrayList<Category> cats = getAllCategories();
 
         ArrayList<Category> roundCat = getRoundCategories(cats);
+        ArrayList<Category> roundCat2 = getRoundCategories(cats);
         JWindow jeopardyWindow = new JWindow(roundCat, 1);
+        JWindow doubleWindow = new JWindow(roundCat2, 2);
+        PlayerWindow player = new PlayerWindow(play,jeopardyWindow,doubleWindow);
+        MenuWindow menu = new MenuWindow(player);
 
-        //ArrayList<Player> play = new ArrayList<Player>();
+
+
         //Player one = new Player("Jerry");
         //Player two = new Player("Jeremy");
         //Player three = new Player("Jessica");
@@ -29,8 +29,6 @@ public class Jeopardy {
         //score.start();
 
 
-        //ArrayList<Category> roundCat2 = getRoundCategories(cats);
-        //JWindow doubleWindow = new JWindow(roundCat2, 2);
     }
 
     public static ArrayList<Category> getAllCategories() {
