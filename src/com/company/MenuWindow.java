@@ -10,15 +10,13 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MenuWindow {
+public class MenuWindow extends Thread {
 
     private JFrame menu;
-    private Thread t;
-    private PlayerWindow pw;
+    ArrayList<Player> players;
+    PlayerWindow pw;
 
-    public MenuWindow(PlayerWindow pw) {
-
-        this.pw=pw;
+    public MenuWindow() {
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
@@ -90,19 +88,31 @@ public class MenuWindow {
         button.setAlignmentX(Box.CENTER_ALIGNMENT);
 
         menu.getContentPane().add(panel);
+    }
+
+    @Override
+    public void run() {
         menu.pack();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
-
+        players = new ArrayList<>();
+        pw = new PlayerWindow(players);
+        Thread pt = new Thread(pw);
     }
-
 
     class ButtonListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            try {
+                Thread pt = new Thread(pw);
+                pt.start();
+                pt.join();
+            } catch (InterruptedException ex) {
+                System.out.print(ex.getMessage());
+            }
             menu.dispose();
-            pw.start();
+            interrupt();
         }
     }
 

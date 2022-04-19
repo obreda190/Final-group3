@@ -11,18 +11,15 @@ public class JWindow extends Thread {
 
     private ArrayList<Category> categories;
     private JFrame frame;
-    private int roundNum;
+    private Timers t1;
 
     public JWindow(ArrayList<Category> categories, int roundNum) {
         this.categories = categories;
-        this.roundNum = roundNum;
-    }
-    public void run(){
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         //Timer being made
-        Timers t1 = new Timers(RoundType.Jeopardy);
+        t1 = new Timers(RoundType.Jeopardy);
 
         if (roundNum == 1) {
             frame = new JFrame("Jeopardy Round");
@@ -61,12 +58,13 @@ public class JWindow extends Thread {
         }
 
         frame.getContentPane().setLayout(new FlowLayout());
+    }
+    public void run() {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         //starts t1 after window is established(look into if this changes timing)
         t1.start();
-
         try {
             //joins t1 to window thread so when t1 is done...
             t1.join();
@@ -76,7 +74,6 @@ public class JWindow extends Thread {
         //...the window becomes invisible
         frame.dispose();
     }
-
 
     class ButtonListener implements ActionListener {
 
