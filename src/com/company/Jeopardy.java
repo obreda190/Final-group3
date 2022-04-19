@@ -7,15 +7,14 @@ import java.util.*;
 public class Jeopardy {
 
     public static void main(String[] args) throws InterruptedException {
+
         ArrayList<Player> play = new ArrayList<>();
         ArrayList<Category> cats = getAllCategories();
         ArrayList<Category> roundCat = getRoundCategories(cats);
+
         JWindow jeopardyWindow = new JWindow(roundCat);
         PlayerWindow player = new PlayerWindow(play,jeopardyWindow);
         MenuWindow menu = new MenuWindow(player);
-
-
-
 
         System.out.println("DONE");
     }

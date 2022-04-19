@@ -18,7 +18,6 @@ public class QuestionWindow {
     private Action enterAction;
 
     public QuestionWindow(Question q, String player) {
-        Timers t1 = new Timers(RoundType.Question);
 
         Border blank = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 
@@ -38,7 +37,7 @@ public class QuestionWindow {
         tf = new JTextField(20);
         frame.getContentPane().add(tf);
 
-        button = new JButton("Done");
+        button = new JButton("Submit");
         button.addActionListener(new ButtonListener(tf));
         frame.getContentPane().add(button);
         enterAction = new EnterAction();
@@ -50,15 +49,6 @@ public class QuestionWindow {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
-        t1.start();
-        try{
-            t1.join();
-        }catch(InterruptedException e){
-            System.out.println("Timer Interrupted");
-        }
-        //frame.dispose();
-
     }
 
     public boolean checkAnswer(String response) {

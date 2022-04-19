@@ -4,8 +4,6 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class AskWindow {
 
@@ -24,8 +22,6 @@ public class AskWindow {
 
     public AskWindow(Question q) {
 
-        Timers t1 = new Timers(RoundType.Question);
-
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         this.category = q.getCat();
@@ -33,7 +29,6 @@ public class AskWindow {
 
         frame = new JFrame(category);
         frame.getContentPane().add(Box.createVerticalStrut(10));
-        //Add timer
 
         label = new JLabel(question.getQuestion());
         label.setBorder(blank);
@@ -71,14 +66,6 @@ public class AskWindow {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
-        t1.start();
-        try{
-            t1.join();
-        }catch(InterruptedException e){
-            System.out.println("");
-        }
-        //frame.dispose();
     }
 
     class ButtonListener implements ActionListener {

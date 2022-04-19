@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class PlayerWindow extends Thread {
+
     private JFrame frame;
     private JLabel label;
     private JTextField field;
@@ -16,7 +17,9 @@ public class PlayerWindow extends Thread {
         this.players = players;
         this.jWind = jWind;
     }
-    public void run(){
+
+    public void run() {
+
         frame = new JFrame("Enter Name!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -34,7 +37,6 @@ public class PlayerWindow extends Thread {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
     }
 
     class ButtonListener implements ActionListener {
@@ -52,10 +54,6 @@ public class PlayerWindow extends Thread {
             frame.dispose();
 
             jWind.start();
-
-
-
         }
     }
-
 }

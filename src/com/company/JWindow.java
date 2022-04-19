@@ -15,7 +15,8 @@ public class JWindow extends Thread {
     public JWindow(ArrayList<Category> categories) {
         this.categories = categories;
     }
-        public void run(){
+
+    public void run() {
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
@@ -39,7 +40,7 @@ public class JWindow extends Thread {
             panel.add(cat);
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
-            for(Question q : questions) {
+            for (Question q : questions) {
                 JPanel p = new JPanel();
                 p.setLayout(new BorderLayout());
                 JButton button = new JButton(q.pointString());
@@ -55,10 +56,10 @@ public class JWindow extends Thread {
         }
 
         frame.getContentPane().setLayout(new FlowLayout());
-
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
         //starts t1 after window is established(look into if this changes timing)
         t1.start();
         try {
@@ -69,10 +70,10 @@ public class JWindow extends Thread {
         }
         //...the window becomes invisible
         frame.setVisible(false);
+
         DWindow doubleJeopardy = new DWindow(categories);
         doubleJeopardy.start();
         frame.dispose();
-
     }
 
     class ButtonListener implements ActionListener {
