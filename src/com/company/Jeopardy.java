@@ -11,8 +11,9 @@ public class Jeopardy {
         ArrayList<Player> play = new ArrayList<>();
         ArrayList<Category> cats = getAllCategories();
         ArrayList<Category> roundCat = getRoundCategories(cats);
+        ArrayList<Category> roundCat2 =getRoundCategories(cats);
 
-        JWindow jeopardyWindow = new JWindow(roundCat);
+        JWindow jeopardyWindow = new JWindow(roundCat,roundCat2);
         PlayerWindow player = new PlayerWindow(play,jeopardyWindow);
         MenuWindow menu = new MenuWindow(player);
 
