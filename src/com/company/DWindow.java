@@ -13,8 +13,11 @@ public class DWindow extends Thread {
     private ArrayList<Player> players;
     private JFrame frame;
 
-    public DWindow(ArrayList<Category> categories, ArrayList<Player> players) {
+    public DWindow(ArrayList<Category> categories) {
         this.categories = categories;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
         this.players = players;
     }
 
@@ -72,10 +75,9 @@ public class DWindow extends Thread {
 
         frame.setVisible(false);
 
-        ResultWindow rw=new ResultWindow(players);
+        ResultWindow rw = new ResultWindow(players);
         rw.start();
         frame.dispose();
-
     }
 
     class ButtonListener implements ActionListener {
@@ -97,6 +99,5 @@ public class DWindow extends Thread {
             button.setText("");
         }
     }
-
 }
 
