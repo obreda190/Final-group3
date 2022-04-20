@@ -13,9 +13,9 @@ import javax.swing.border.Border;
  */
 public class JWindow extends Thread {
 
-    private ArrayList<Category> categories, categories2;
+    private final ArrayList<Category> categories;
+    private final ArrayList<Category> categories2;
     private ArrayList<Player> players;
-    private JFrame frame;
 
     /**
      * Non-default constructor that takes 2 ArrayLists containing the 12 random categories to be displayed in the game.
@@ -50,7 +50,7 @@ public class JWindow extends Thread {
         // Timer and new JFrame created and formatted
         Timers t1 = new Timers(RoundType.Jeopardy);
 
-        frame = new JFrame("Single Jeopardy Round");
+        JFrame frame = new JFrame("Single Jeopardy Round");
         frame.setForeground(Color.white);
         frame.setBackground(Color.blue);
         frame.getRootPane().setBorder(blank);
@@ -133,8 +133,8 @@ public class JWindow extends Thread {
      */
     class ButtonListener implements ActionListener {
 
-        private Question question;
-        private JButton button;
+        private final Question question;
+        private final JButton button;
 
         /**
          * Non-default constructor that instantiates a JButton object and the Question object that it represents.
@@ -153,7 +153,7 @@ public class JWindow extends Thread {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-            AskWindow aw = new AskWindow(question, players);
+            new AskWindow(question, players);
 
             ActionListener[] a = button.getActionListeners();
             button.removeActionListener((ActionListener) Array.get(a, 0));
