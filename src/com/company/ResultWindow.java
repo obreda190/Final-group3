@@ -25,7 +25,6 @@ public class ResultWindow extends Thread{
     //Figure out which player has the highest amount
     public void run(){
         JFrame frame=new JFrame("The winner is...");
-        Timers t1 = new Timers(RoundType.Jeopardy);
         if ((s1>s2)&&(s1>s3)){
             new JLabel(s1+" Wins! Congrats");
         }
@@ -47,14 +46,6 @@ public class ResultWindow extends Thread{
         if ((s2>s3)&&(s1==s2)){
             new JLabel(s1+" and "+s2+" have tied for the win! Congrats");
         }
-        
-        t1.start();
-        try {
-            t1.join();
-        } catch (InterruptedException e) {
-            System.out.print("Interrupted Jeopardy");
-        }
-        frame.dispose();
 
 
         label.setVerticalAlignment(SwingConstants.CENTER);

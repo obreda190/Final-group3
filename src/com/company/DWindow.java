@@ -70,6 +70,8 @@ public class DWindow extends Thread {
             System.out.print("Interrupted Jeopardy");
         }
 
+        frame.setVisible(false);
+
         ResultWindow rw=new ResultWindow(players);
         rw.start();
         frame.dispose();
