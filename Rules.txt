@@ -2,8 +2,10 @@
 Player 1's buzzer is the 'Q' key
 Player 2's buzzer is the 'B' key
 Player 3's buzzer is the 'P' key
+2.) Players can submit their answer by pressing the submit button or 'ENTER' key
 2.) Each question will only be asked once, there is no chance to steal
 3.) The names of the categories will sometimes give a hint as to what sort of answer is expected
 ex. Category name: Ends in "X", Every answer will be a word that ends in the letter X
-4.) Answers are NOT case-sensitive, but they ARE punctuation-sensitive (i.e. apostrophes and hyphens are important)
+4.) Answers are NOT case-sensitive, but they ARE punctuation-sensitive
+(i.e. apostrophes and hyphens are important)
 5.) The last person to answer a question correctly gets to choose the next question

@@ -33,7 +33,7 @@ public class ResultWindow extends Thread {
         congrats.setBorder(blank);
         panel.add(congrats);
 
-        JLabel name = new JLabel(getWinner(), SwingConstants.CENTER);
+        JLabel name = new JLabel(getWinner() + "!!", SwingConstants.CENTER);
         name.setVerticalAlignment(SwingConstants.CENTER);
         name.setBorder(blank);
         panel.add(name);
