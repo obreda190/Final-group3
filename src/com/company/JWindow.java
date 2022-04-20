@@ -87,8 +87,8 @@ public class JWindow extends Thread {
         }
         board.getBoard().dispose();
 
-
-        DWindow doubleJeopardy = new DWindow(categories2, players);
+        DWindow doubleJeopardy = new DWindow(categories2);
+        doubleJeopardy.setPlayers(players);
         doubleJeopardy.start();
         frame.dispose();
     }

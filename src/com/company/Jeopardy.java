@@ -11,14 +11,12 @@ public class Jeopardy {
         ArrayList<Player> play = new ArrayList<>();
         ArrayList<Category> cats = getAllCategories();
         ArrayList<Category> roundCat = getRoundCategories(cats);
-        ArrayList<Category> roundCat2 =getRoundCategories(cats);
+        ArrayList<Category> roundCat2 = getRoundCategories(cats);
 
         JWindow jeopardyWindow = new JWindow(roundCat,roundCat2);
         PlayerWindow player = new PlayerWindow(play,jeopardyWindow);
         MenuWindow menu = new MenuWindow(player);
-        ResultWindow rw= new ResultWindow(player.getPlayers());
 
-        System.out.println("DONE");
     }
 
     public static ArrayList<Category> getAllCategories() {
@@ -53,6 +51,4 @@ public class Jeopardy {
 
         return roundCats;
     }
-
-    //Get final category
 }
