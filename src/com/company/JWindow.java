@@ -75,6 +75,16 @@ public class JWindow extends Thread {
         }
         //...the window becomes invisible
         frame.setVisible(false);
+        ScoreBoard board = new ScoreBoard(players);
+        Timers t2 = new Timers(RoundType.Question);
+        t2.start();
+        try {
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted Timer");
+        }
+        board.getBoard().dispose();
+
 
         DWindow doubleJeopardy = new DWindow(categories, players);
         doubleJeopardy.start();

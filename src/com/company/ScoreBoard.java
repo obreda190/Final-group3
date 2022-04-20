@@ -48,23 +48,8 @@ public class ScoreBoard extends Thread {
         board.setVisible(true);
     }
 
-    //See who is in the lead
-
-    //Needs to be its own thread in order to stay open and update the whole time
-
-    public void reScore(){
-        try {
-            Thread.sleep(1000);
-            board.getContentPane().repaint();
-        } catch (InterruptedException e) {
-            System.out.println("Interrupt ScoreBoard");
-        }
-        reScore();
-
+    public JFrame getBoard(){
+        return this.board;
     }
-    @Override
-    public void run() {
-        reScore();
 
-    }
 }
