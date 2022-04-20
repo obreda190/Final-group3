@@ -31,6 +31,8 @@ public class JWindow extends Thread {
         Timers t1 = new Timers(RoundType.Jeopardy);
 
         frame = new JFrame("Jeopardy Round");
+        frame.setForeground(Color.white);
+        frame.setBackground(Color.blue);
         frame.getRootPane().setBorder(blank);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -44,6 +46,7 @@ public class JWindow extends Thread {
             cat.setVerticalAlignment(SwingConstants.CENTER);
             cat.setBorder(blank);
             panel.add(cat);
+            cat.setForeground(Color.white);
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
             for (Question q : questions) {
@@ -55,11 +58,13 @@ public class JWindow extends Thread {
                 button.addActionListener(new ButtonListener(q, button));
                 p.add(button, BorderLayout.CENTER);
                 panel.add(p);
+                p.setBackground(Color.blue);
             }
 
             panel.setPreferredSize(new Dimension(210, 500));
             panel.setBorder(blackLine);
             panel.setVisible(true);
+            panel.setBackground(Color.blue);
             frame.getContentPane().add(panel);
         }
 

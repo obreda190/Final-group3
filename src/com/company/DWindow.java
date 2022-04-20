@@ -29,6 +29,8 @@ public class DWindow extends Thread {
         Timers t1 = new Timers(RoundType.Jeopardy);
 
         frame = new JFrame("Double Jeopardy Round");
+        frame.setForeground(Color.white);
+        frame.setBackground(Color.blue);
         frame.getRootPane().setBorder(blank);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -42,6 +44,7 @@ public class DWindow extends Thread {
             JLabel cat = new JLabel("<html><p>" + c.getName() + "</p></html>", SwingConstants.CENTER);
             cat.setVerticalAlignment(SwingConstants.CENTER);
             cat.setBorder(blank);
+            cat.setForeground(Color.white);
             panel.add(cat);
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
@@ -53,12 +56,14 @@ public class DWindow extends Thread {
                 JButton button = new JButton(q.pointString());
                 button.addActionListener(new ButtonListener(q, button));
                 p.add(button, BorderLayout.CENTER);
+                p.setBackground(Color.blue);
                 panel.add(p);
             }
 
             panel.setPreferredSize(new Dimension(210, 500));
             panel.setBorder(blackLine);
             panel.setVisible(true);
+            panel.setBackground(Color.blue);
             frame.getContentPane().add(panel);
         }
 
