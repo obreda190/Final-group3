@@ -23,7 +23,7 @@ public class Timers extends Thread {
                 System.out.println("Timer Interrupted");
             }
 
-        } else if (rt == RoundType.Question) {
+        } else if (rt == RoundType.Double) {
             try {
                 Thread.sleep(5000);
                 //subtract points from player who buzzed in

@@ -78,7 +78,7 @@ public class JWindow extends Thread {
         //...the window becomes invisible
         frame.setVisible(false);
         ScoreBoard board = new ScoreBoard(players);
-        Timers t2 = new Timers(RoundType.Question);
+        Timers t2 = new Timers(RoundType.Double);
         t2.start();
         try {
             t2.join();
