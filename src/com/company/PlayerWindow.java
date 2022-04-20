@@ -16,6 +16,9 @@ public class PlayerWindow extends Thread {
     private JButton button;
     private ArrayList<Player> players;
     private JWindow jWind;
+    public PlayerWindow(){
+
+    }
 
     public PlayerWindow(ArrayList<Player> players, JWindow jWind) {
         this.players = players;
@@ -54,7 +57,6 @@ public class PlayerWindow extends Thread {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-
     class ButtonListener implements ActionListener {
 
         private JTextField f1;
@@ -84,5 +86,8 @@ public class PlayerWindow extends Thread {
             jWind.setPlayers(players);
             jWind.start();
         }
+    }
+    public ArrayList<Player> getPlayers(){
+        return players;
     }
 }

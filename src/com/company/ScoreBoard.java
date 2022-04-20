@@ -47,6 +47,12 @@ public class ScoreBoard extends Thread {
         board.setLocationRelativeTo(null);
         board.setVisible(true);
     }
+    //public static int getLead() throws InterruptedException {
+        //Thread t= new Thread();
+        //String score=t.toString();
+       //int scored=Integer.parseInt(score);
+        //return scoe
+    //}
 
     //See who is in the lead
 
