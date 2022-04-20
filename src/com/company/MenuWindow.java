@@ -92,7 +92,12 @@ public class MenuWindow {
         menu.setVisible(true);
     }
 
+
     class ButtonListener implements ActionListener {
+        /**
+         * dispose of the MenuWindow GUI and starts running the PlayerWindow
+         * @param e ActionEvent
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             menu.dispose();
@@ -100,6 +105,10 @@ public class MenuWindow {
         }
     }
 
+    /**
+     * returns the text in the Game.txt text file
+     * @return ArrayList</String> of the text in the text file
+     */
     public ArrayList<String> getGame() {
 
         ArrayList<String> game = new ArrayList<>();
@@ -120,6 +129,10 @@ public class MenuWindow {
         return game;
     }
 
+    /**
+     * returns the text in the Rules.txt text file
+     * @return ArrayList</String> of the text in the text file
+     */
     public ArrayList<String> getRules() {
 
         ArrayList<String> rules = new ArrayList<>();
