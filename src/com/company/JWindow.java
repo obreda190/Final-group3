@@ -10,11 +10,13 @@ import java.awt.event.*;
 public class JWindow extends Thread {
 
     private ArrayList<Category> categories;
+    private ArrayList<Category> categories2;
     private ArrayList<Player> players;
     private JFrame frame;
 
-    public JWindow(ArrayList<Category> categories) {
+    public JWindow(ArrayList<Category> categories,ArrayList<Category> categories2) {
         this.categories = categories;
+        this.categories2 = categories2;
     }
 
     public void setPlayers(ArrayList<Player> players) {
@@ -75,8 +77,18 @@ public class JWindow extends Thread {
         }
         //...the window becomes invisible
         frame.setVisible(false);
+        ScoreBoard board = new ScoreBoard(players);
+        Timers t2 = new Timers(RoundType.Double);
+        t2.start();
+        try {
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted Timer");
+        }
+        board.getBoard().dispose();
 
-        DWindow doubleJeopardy = new DWindow(categories, players);
+
+        DWindow doubleJeopardy = new DWindow(categories2, players);
         doubleJeopardy.start();
         frame.dispose();
     }

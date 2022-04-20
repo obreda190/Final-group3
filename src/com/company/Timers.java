@@ -23,10 +23,9 @@ public class Timers extends Thread {
                 System.out.println("Timer Interrupted");
             }
 
-        } else if (rt == RoundType.Question) {
+        } else if (rt == RoundType.Double) {
             try {
                 Thread.sleep(5000);
-                JOptionPane.showMessageDialog(null,"Sorry! Too slow","Sorry!", JOptionPane.PLAIN_MESSAGE);
                 //subtract points from player who buzzed in
             } catch (InterruptedException e) {
                 System.out.println("Timer Interrupted");
