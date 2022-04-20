@@ -16,9 +16,6 @@ public class PlayerWindow extends Thread {
     private JButton button;
     private ArrayList<Player> players;
     private JWindow jWind;
-    public PlayerWindow(){
-
-    }
 
     public PlayerWindow(ArrayList<Player> players, JWindow jWind) {
         this.players = players;
