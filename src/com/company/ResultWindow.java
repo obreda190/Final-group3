@@ -1,16 +1,13 @@
 package com.company;
 
 import java.awt.*;
-import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.event.*;
+import java.util.*;
 
 public class ResultWindow extends Thread {
 
-    private Player p1;
-    private Player p2;
-    private Player p3;
+    private Player p1, p2, p3;
 
     public ResultWindow(ArrayList<Player> players) {
         p1 = players.get(0);
@@ -58,9 +55,11 @@ public class ResultWindow extends Thread {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
         }
-        UIManager.put("OptionPane.minimumSize", new Dimension(300,300));
-        JOptionPane.showMessageDialog(results, panel);
+
+        UIManager.put("OptionPane.minimumSize", new Dimension(200,200));
+        JOptionPane.showMessageDialog(results, panel, "Winner!", JOptionPane.PLAIN_MESSAGE);
     }
 
     public Player getWinner() {
@@ -86,6 +85,7 @@ public class ResultWindow extends Thread {
         private double x, y, dx, dy;
 
         public Confetti() {
+
             Random r = new Random();
             x = r.nextFloat() * 500;
             y = r.nextFloat() * 500;
@@ -99,6 +99,7 @@ public class ResultWindow extends Thread {
         }
 
         public void update(double dt) {
+
             x += (dx * dt);
             y += (dy * dt);
 
@@ -119,13 +120,11 @@ public class ResultWindow extends Thread {
 
     public class GameWorld extends JComponent {
 
-        private ArrayList<Confetti> yellow;
-        private ArrayList<Confetti> red;
-        private ArrayList<Confetti> green;
-        private ArrayList<Confetti> blue;
+        private ArrayList<Confetti> yellow, red, green, blue;
         private long last_time;
 
         public GameWorld(int count) {
+
             last_time = new Date().getTime();
 
             yellow = new ArrayList<>(count/4);
@@ -148,6 +147,7 @@ public class ResultWindow extends Thread {
 
         @Override
         public void paintComponent(Graphics g) {
+
             g.setColor(Color.white);
             g.fillRect(0,0,500,500);
 

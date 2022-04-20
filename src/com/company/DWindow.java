@@ -1,11 +1,11 @@
 package com.company;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.lang.reflect.Array;
-import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.event.*;
+import java.util.*;
 
 public class DWindow extends Thread {
 
@@ -22,19 +22,19 @@ public class DWindow extends Thread {
     }
 
     public void run() {
+
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
         Timers t1 = new Timers(RoundType.Jeopardy);
 
         frame = new JFrame("Double Jeopardy Round");
-
         frame.getRootPane().setBorder(blank);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         for (Category c : categories) {
-            c.doubleJeopardy();
 
+            c.doubleJeopardy();
             ArrayList<Question> questions = c.getQuestionsList();
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
@@ -46,8 +46,10 @@ public class DWindow extends Thread {
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
             for (Question q : questions) {
+
                 JPanel p = new JPanel();
                 p.setLayout(new BorderLayout());
+
                 JButton button = new JButton(q.pointString());
                 button.addActionListener(new ButtonListener(q, button));
                 p.add(button, BorderLayout.CENTER);
@@ -61,7 +63,6 @@ public class DWindow extends Thread {
         }
 
         frame.getContentPane().setLayout(new FlowLayout());
-
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -72,7 +73,6 @@ public class DWindow extends Thread {
         } catch (InterruptedException e) {
             System.out.print("Interrupted Jeopardy");
         }
-
         frame.setVisible(false);
 
         ResultWindow rw = new ResultWindow(players);
@@ -94,7 +94,7 @@ public class DWindow extends Thread {
 
             AskWindow aw = new AskWindow(question, players);
 
-            ActionListener a[] = button.getActionListeners();
+            ActionListener[] a = button.getActionListeners();
             button.removeActionListener((ActionListener) Array.get(a, 0));
             button.setText("");
         }

@@ -1,22 +1,21 @@
 package com.company;
 
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.event.*;
 
 public class QuestionWindow {
+
+    private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+    private Action enterAction;
 
     private String category;
     private Question question;
     private JFrame frame;
-    private JLabel name;
-    private JLabel label;
+    private JLabel name, label;
     private JTextField tf;
     private JButton button;
     private Player player;
-
-    private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
-    private Action enterAction;
 
     public QuestionWindow(Question q, Player p) {
 
@@ -78,10 +77,10 @@ public class QuestionWindow {
 
             if (check) {
                 player.addPoints(question.getPoints());
-                JOptionPane.showMessageDialog(null, "Correct! Points have been added to your score.");
+                JOptionPane.showMessageDialog(frame, "Correct! Points have been added to your score.");
             } else {
                 player.subtractPoints(question.getPoints());
-                JOptionPane.showMessageDialog(null, "Incorrect, the correct answer was: " + question.getAnswer() +
+                JOptionPane.showMessageDialog(frame, "Incorrect, the correct answer was: " + question.getAnswer() +
                         ". Points have been deducted");
             }
             frame.dispose();

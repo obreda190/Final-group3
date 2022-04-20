@@ -1,13 +1,11 @@
 package com.company;
 
-import javax.lang.model.type.IntersectionType;
-import java.io.File;
+import java.io.*;
 import java.util.*;
 
 public class Jeopardy {
 
-    public static void main(String[] args) throws InterruptedException {
-
+    public static void main(String[] args) {
         ArrayList<Player> play = new ArrayList<>();
         ArrayList<Category> cats = getAllCategories();
         ArrayList<Category> roundCat = getRoundCategories(cats);
@@ -19,23 +17,7 @@ public class Jeopardy {
 
     }
 
-    public static ArrayList<Category> getAllCategories() {
-
-        ArrayList<String> allNames;
-        ArrayList<Category> allCats = new ArrayList<>();
-        File f = new File("./jeopardy");
-        allNames = new ArrayList<>(Arrays.asList(f.list()));
-
-        for (String s : allNames) {
-            Category c = new Category(s);
-            allCats.add(c);
-        }
-
-        return allCats;
-    }
-
     public static ArrayList<Category> getRoundCategories(ArrayList<Category> catList) {
-
         ArrayList<Category> roundCats = new ArrayList<>();
         Random rng = new Random();
         int sampleSize = catList.size();
@@ -50,5 +32,19 @@ public class Jeopardy {
         }
 
         return roundCats;
+    }
+
+    public static ArrayList<Category> getAllCategories() {
+        ArrayList<String> allNames;
+        ArrayList<Category> allCats = new ArrayList<>();
+        File f = new File("./jeopardy");
+        allNames = new ArrayList<>(Arrays.asList(f.list()));
+
+        for (String s : allNames) {
+            Category c = new Category(s);
+            allCats.add(c);
+        }
+
+        return allCats;
     }
 }

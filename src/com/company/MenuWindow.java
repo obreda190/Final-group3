@@ -1,28 +1,23 @@
 package com.company;
 
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class MenuWindow {
 
     private JFrame menu;
-    private Thread t;
     private PlayerWindow pw;
 
     public MenuWindow(PlayerWindow pw) {
 
-        this.pw = pw;
-
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
+        this.pw = pw;
         menu = new JFrame("Main Menu");
         menu.getRootPane().setBorder(blank);
         menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +40,6 @@ public class MenuWindow {
         g.add(game);
         game.setAlignmentX(Box.CENTER_ALIGNMENT);
 
-        //Add component that reads from Game.txt
         JPanel gameText = new JPanel();
         gameText.setLayout(new BoxLayout(gameText, BoxLayout.PAGE_AXIS));
         for (String s : getGame()) {
@@ -67,7 +61,6 @@ public class MenuWindow {
         r.add(rules);
         r.setAlignmentX(Box.CENTER_ALIGNMENT);
 
-        //Add component that reads from Rules.txt
         JPanel rulesText = new JPanel();
         rulesText.setLayout(new BoxLayout(rulesText, BoxLayout.PAGE_AXIS));
         for (String s : getRules()) {
@@ -96,7 +89,6 @@ public class MenuWindow {
     }
 
     class ButtonListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             menu.dispose();
@@ -116,7 +108,6 @@ public class MenuWindow {
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
         while (reader.hasNextLine()) {
             String s = reader.nextLine();
             game.add(s);
@@ -137,7 +128,6 @@ public class MenuWindow {
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
         while (reader.hasNextLine()) {
             String s = reader.nextLine();
             rules.add(s);

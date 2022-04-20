@@ -4,16 +4,13 @@ import java.util.*;
 
 public class Question {
 
-    String category;
-    String question;
-    String answer;
+    String category, question, answer;
     int points;
     boolean asked;
 
     public Question(Scanner in, String category) {
 
         this.category = category;
-
         question = in.nextLine();
         answer = in.nextLine();
 
@@ -46,19 +43,18 @@ public class Question {
         return points;
     }
 
-    public void doubleJeopardy() {
-        points = points * 2;
-    }
-
     public String pointString() {
         String data = "";
         data = data + points;
         return data;
     }
 
+    public void doubleJeopardy() {
+        points = points * 2;
+    }
+
     @Override
     public String toString() {
-
         String data = "";
         data = data + question + "\n";
         data = data + answer + "\n";

@@ -1,11 +1,7 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Category {
 
@@ -32,14 +28,14 @@ public class Category {
         }
     }
 
+    public ArrayList<Question> getQuestionsList() {
+        return category;
+    }
+
     public void doubleJeopardy() {
         for (Question q : category) {
             q.doubleJeopardy();
         }
-    }
-
-    public ArrayList<Question> getQuestionsList() {
-        return category;
     }
 
     public String getName() {
@@ -53,24 +49,8 @@ public class Category {
         return data.toUpperCase();
     }
 
-    public Question getQuestion(int points) {
-
-        int i;
-        Question key = null;
-
-        for (Question q : category) {
-            i = q.getPoints();
-            if (i == points) {
-                key = q;
-            }
-        }
-
-        return key;
-    }
-
     @Override
     public String toString() {
-
         String data = "";
         data = data + "Category: " + getName() + "\n";
 
@@ -78,8 +58,6 @@ public class Category {
             data = data + "Question " + (category.indexOf(q) + 1) + ":\n";
             data = data + q.toString() + "\n";
         }
-
         return data;
     }
-
 }

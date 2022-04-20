@@ -1,10 +1,9 @@
 This is a pseudo-replica of the game show Jeopardy!
 3 players will compete in 2 rounds of trivia questions back to back
-Each round will consist of 6 categories with five questions apiece
+Each round consists of 6 categories with five questions apiece
 Points range from 200-1000 in the first round and 400-2000 in the second
 Players will click any of the buttons on the board to display the corresponding question along with 3 buzzers
 The first player to buzz in will have a window appear that contains their name, indicating that they get to answer
 The player will type their answer into the text-field and submit it either by clicking the button or hitting the 'ENTER' key
-A window will then appear, displaying whether the answer was correct or not
 Points will be awarded for correct answers and deducted for incorrect ones
-This process repeats until either all questions have been asked, or the round timer ends
+This process repeats until the round timer ends

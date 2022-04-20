@@ -1,18 +1,14 @@
 package com.company;
 
-import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class PlayerWindow extends Thread {
 
     private JFrame frame;
-    private JLabel p1;
-    private JLabel p2;
-    private JLabel p3;
-    private JTextField f1;
-    private JTextField f2;
-    private JTextField f3;
+    private JLabel p1, p2, p3;
+    private JTextField f1, f2, f3;
     private JButton button;
     private ArrayList<Player> players;
     private JWindow jWind;
@@ -29,19 +25,16 @@ public class PlayerWindow extends Thread {
 
         p1 = new JLabel("Player 1, please enter your name: ");
         frame.getContentPane().add(p1);
-
         f1 = new JTextField(20);
         frame.getContentPane().add(f1);
 
         p2 = new JLabel("Player 2, please enter your name: ");
         frame.getContentPane().add(p2);
-
         f2 = new JTextField(20);
         frame.getContentPane().add(f2);
 
         p3 = new JLabel("Player 3, please enter your name: ");
         frame.getContentPane().add(p3);
-
         f3 = new JTextField(20);
         frame.getContentPane().add(f3);
 
@@ -54,11 +47,10 @@ public class PlayerWindow extends Thread {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
+
     class ButtonListener implements ActionListener {
 
-        private JTextField f1;
-        private JTextField f2;
-        private JTextField f3;
+        private JTextField f1, f2, f3;
 
         public ButtonListener(JTextField f1, JTextField f2, JTextField f3) {
             this.f1 = f1;
@@ -67,6 +59,7 @@ public class PlayerWindow extends Thread {
         }
 
         public void actionPerformed(ActionEvent e) {
+
             String n1 = f1.getText();
             Player p1 = new Player(n1);
             players.add(p1);
@@ -83,8 +76,5 @@ public class PlayerWindow extends Thread {
             jWind.setPlayers(players);
             jWind.start();
         }
-    }
-    public ArrayList<Player> getPlayers(){
-        return players;
     }
 }

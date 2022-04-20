@@ -1,6 +1,5 @@
 package com.company;
 
-import javax.swing.*;
 import java.lang.*;
 
 public class Player {

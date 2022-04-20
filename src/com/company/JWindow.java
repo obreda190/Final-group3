@@ -1,11 +1,11 @@
 package com.company;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.lang.reflect.Array;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.event.*;
 
 public class JWindow extends Thread {
 
@@ -24,14 +24,13 @@ public class JWindow extends Thread {
     }
 
     public void run() {
+
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
 
-        //Timer being made
         Timers t1 = new Timers(RoundType.Jeopardy);
 
         frame = new JFrame("Jeopardy Round");
-
         frame.getRootPane().setBorder(blank);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -48,8 +47,10 @@ public class JWindow extends Thread {
             cat.setAlignmentX(Box.CENTER_ALIGNMENT);
 
             for (Question q : questions) {
+
                 JPanel p = new JPanel();
                 p.setLayout(new BorderLayout());
+
                 JButton button = new JButton(q.pointString());
                 button.addActionListener(new ButtonListener(q, button));
                 p.add(button, BorderLayout.CENTER);
@@ -67,17 +68,15 @@ public class JWindow extends Thread {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        //starts t1 after window is established(look into if this changes timing)
         t1.start();
         try {
-            //joins t1 to window thread so when t1 is done...
             t1.join();
         } catch(InterruptedException e) {
             System.out.print("Interrupted Jeopardy");
         }
-        //...the window becomes invisible
         frame.setVisible(false);
         ScoreBoard board = new ScoreBoard(players);
+
         Timers t2 = new Timers(RoundType.Double);
         t2.start();
         try {
@@ -107,7 +106,7 @@ public class JWindow extends Thread {
 
             AskWindow aw = new AskWindow(question, players);
 
-            ActionListener a[] = button.getActionListeners();
+            ActionListener[] a = button.getActionListeners();
             button.removeActionListener((ActionListener) Array.get(a, 0));
             button.setText("");
         }
