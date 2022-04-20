@@ -33,19 +33,13 @@ public class ResultWindow extends Thread {
         congrats.setBorder(blank);
         panel.add(congrats);
 
-        JLabel name = new JLabel(getWinner().getName(), SwingConstants.CENTER);
+        JLabel name = new JLabel(getWinner(), SwingConstants.CENTER);
         name.setVerticalAlignment(SwingConstants.CENTER);
         name.setBorder(blank);
         panel.add(name);
 
-        JLabel score = new JLabel(String.valueOf(getWinner().getScore()), SwingConstants.CENTER);
-        score.setVerticalAlignment(SwingConstants.CENTER);
-        score.setBorder(blank);
-        panel.add(score);
-
         congrats.setAlignmentX(Box.CENTER_ALIGNMENT);
         name.setAlignmentX(Box.CENTER_ALIGNMENT);
-        score.setAlignmentX(Box.CENTER_ALIGNMENT);
 
         results.getContentPane().add(new GameWorld(250));
         results.setSize(500,500);
@@ -62,19 +56,27 @@ public class ResultWindow extends Thread {
         JOptionPane.showMessageDialog(results, panel, "Winner!", JOptionPane.PLAIN_MESSAGE);
     }
 
-    public Player getWinner() {
+    public String getWinner() {
 
         int points1 = p1.getScore();
         int points2 = p2.getScore();
         int points3 = p3.getScore();
-        Player winner = null;
+        String winner = "";
 
         if ((points1 > points2) && (points1 > points3)) {
-            winner = p1;
+            winner = p1.getName();
         } else if ((points2 > points1) && (points2 > points3)) {
-            winner = p2;
+            winner = p2.getName();
         } else if ((points3 > points1) && (points3 > points2)) {
-            winner = p3;
+            winner = p3.getName();
+        } else {
+            if (points1 == points2) {
+                winner = p1.getName() + " and " + p2.getName() + " tied!";
+            } else if (points1 == points3) {
+                winner = p1.getName() + " and " + p3.getName() + " tied!";
+            } else if (points2 == points3) {
+                winner = p2.getName() + " and " + p3.getName() + " tied!";
+            }
         }
 
         return winner;
