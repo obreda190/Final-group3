@@ -14,7 +14,7 @@ public class ScoreBoard extends Thread {
 
         this.players = players;
         board = new JFrame("ScoreBoard");
-        board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
         Border blank = BorderFactory.createEmptyBorder(10, 10, 10, 10);
