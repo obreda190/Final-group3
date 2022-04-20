@@ -13,11 +13,19 @@ public class PlayerWindow extends Thread {
     private ArrayList<Player> players;
     private JWindow jWind;
 
+    /**
+     * creates a GUI that asks the user to input 3 names
+     * @param players an ArrayList of Player objects
+     * @param jWind JWindow
+     */
     public PlayerWindow(ArrayList<Player> players, JWindow jWind) {
         this.players = players;
         this.jWind = jWind;
     }
 
+    /**
+     * creates the GUI that is displayed after being called to start
+     */
     public void run() {
 
         frame = new JFrame("Enter Name!");
@@ -48,6 +56,9 @@ public class PlayerWindow extends Thread {
         frame.setVisible(true);
     }
 
+    /**
+     *
+     */
     class ButtonListener implements ActionListener {
 
         private JTextField f1, f2, f3;

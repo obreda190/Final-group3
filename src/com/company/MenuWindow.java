@@ -12,6 +12,10 @@ public class MenuWindow {
     private JFrame menu;
     private PlayerWindow pw;
 
+    /**
+     * creates a GUI that displays the rules of jeopardy
+     * @param pw PlayerWindow
+     */
     public MenuWindow(PlayerWindow pw) {
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
