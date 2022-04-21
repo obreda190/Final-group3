@@ -5,15 +5,14 @@ import java.util.*;
 
 /**
  * @author Grace Ordonez, Niko Toro, Olivia Breda
- * has main and runs window classes
+ * Class that runs a replica of the Jeopardy game show
  */
-
 public class Jeopardy {
+
     /**
-     * main runs program
+     * Main method that runs the actual Jeopardy program
      * @param args
      */
-
     public static void main(String[] args) {
         ArrayList<Player> play = new ArrayList<>();
         ArrayList<Category> cats = getAllCategories();
@@ -27,11 +26,11 @@ public class Jeopardy {
     }
 
     /**
-     * gets categories for round
-     * @param catList
-     * @return round categories
+     * Method that retrieves 6 random Category objects to be used in one round, deleting them from the ArrayList
+     * containing all the category files found
+     * @param catList ArrayList representing all the category files found in the jeopardy directory
+     * @return ArrayList containing 6 randomly chosen Category objects
      */
-
     public static ArrayList<Category> getRoundCategories(ArrayList<Category> catList) {
         ArrayList<Category> roundCats = new ArrayList<>();
         Random rng = new Random();
@@ -50,10 +49,9 @@ public class Jeopardy {
     }
 
     /**
-     * gets all possible categories
-     * @return all categories
+     * Method that iterates through the jeopardy directory, adding the contents of each file into a Category object
+     * @return ArrayList representing all the category files found in the jeopardy directory
      */
-
     public static ArrayList<Category> getAllCategories() {
         ArrayList<String> allNames;
         ArrayList<Category> allCats = new ArrayList<>();
