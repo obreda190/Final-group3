@@ -3,7 +3,16 @@ package com.company;
 import java.io.*;
 import java.util.*;
 
+/**
+ * @author Grace Ordonez, Niko Toro, Olivia Breda
+ * has main and runs window classes
+ */
+
 public class Jeopardy {
+    /**
+     * main runs program
+     * @param args
+     */
 
     public static void main(String[] args) {
         ArrayList<Player> play = new ArrayList<>();
@@ -16,6 +25,12 @@ public class Jeopardy {
         MenuWindow menu = new MenuWindow(player);
 
     }
+
+    /**
+     * gets categories for round
+     * @param catList
+     * @return round categories
+     */
 
     public static ArrayList<Category> getRoundCategories(ArrayList<Category> catList) {
         ArrayList<Category> roundCats = new ArrayList<>();
@@ -33,6 +48,11 @@ public class Jeopardy {
 
         return roundCats;
     }
+
+    /**
+     * gets all possible categories
+     * @return all categories
+     */
 
     public static ArrayList<Category> getAllCategories() {
         ArrayList<String> allNames;

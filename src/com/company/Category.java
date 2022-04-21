@@ -3,10 +3,20 @@ package com.company;
 import java.io.*;
 import java.util.*;
 
+/**
+ * @author Grace Ordonez, Niko Toro, Olivia Breda
+ * this class denotes categories and references the questions in them
+ */
+
 public class Category {
 
     private String name;
     private ArrayList<Question> category;
+
+    /**
+     * constructor gets categories from .jeopardy
+     * @param name
+     */
 
     public Category(String name) {
 
@@ -28,6 +38,11 @@ public class Category {
         }
     }
 
+    /**
+     * gets questions from given category
+     * @return questions in category
+     */
+
     public ArrayList<Question> getQuestionsList() {
         return category;
     }
@@ -37,6 +52,11 @@ public class Category {
             q.doubleJeopardy();
         }
     }
+
+    /**
+     * determines category name
+     * @return category name
+     */
 
     public String getName() {
 
@@ -48,6 +68,11 @@ public class Category {
 
         return data.toUpperCase();
     }
+
+    /**
+     * finds category data
+     * @return data
+     */
 
     @Override
     public String toString() {

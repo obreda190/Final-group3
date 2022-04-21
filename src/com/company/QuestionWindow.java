@@ -4,59 +4,47 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-/**
- * @author Niko Toro, Grace Ordonez, Olivia Breda
- * This class creates a JFrame containing a Question object and a JTextField to allow a player to type in an answer
- */
 public class QuestionWindow {
 
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
+    private Action enterAction;
 
-    private final Player player;
-    private final Question question;
-    private final JFrame frame;
-    private final JButton button;
+    private String category;
+    private Question question;
+    private JFrame frame;
+    private JLabel name, label;
+    private JTextField tf;
+    private JButton button;
+    private Player player;
 
-    /**
-     * Non-default constructor that creates and displays a new JFrame containing a question, JTextField, and JButton
-     * @param question Question object representing the question being asked
-     * @param player Player object representing the player who buzzed in
-     */
-    public QuestionWindow(Question question, Player player) {
+    public QuestionWindow(Question q, Player p) {
 
-        // Border used in JFrame layout
         Border blank = BorderFactory.createEmptyBorder(5, 5, 5, 5);
 
-        String category = question.getCat();
-        this.question = question;
-        this.player = player;
+        this.category = q.getCat();
+        question = q;
+        player = p;
 
-        // New JFrame created
         frame = new JFrame(category);
 
-        // New JLabel created with the name of player who buzzed in
-        JLabel name = new JLabel(player.getName());
+        name = new JLabel(p.getName());
         name.setBorder(blank);
         frame.getContentPane().add(name);
 
-        // New JLabel created with the String value of the desired Question object
-        JLabel label = new JLabel(question.getQuestion());
+        label = new JLabel(question.getQuestion());
         label.setBorder(blank);
         frame.getContentPane().add(label);
 
-        // New JTextField created
-        JTextField tf = new JTextField(20);
+        tf = new JTextField(20);
         frame.getContentPane().add(tf);
 
-        // New JButton created and bound to the 'ENTER' key for the player to submit and check their answer
         button = new JButton("Submit");
         button.addActionListener(new ButtonListener(tf));
         frame.getContentPane().add(button);
-        Action enterAction = new EnterAction();
+        enterAction = new EnterAction();
         button.getInputMap(IFW).put(KeyStroke.getKeyStroke("ENTER"), "enterAction");
         button.getActionMap().put("enterAction", enterAction);
 
-        // JFrame packed and displayed
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         tf.requestFocus();
         frame.pack();
@@ -64,11 +52,6 @@ public class QuestionWindow {
         frame.setVisible(true);
     }
 
-    /**
-     * Method that compares given String to a Question object's answer.
-     * @param response String value entered by a player
-     * @return true when the player's response is equal to the answer and false otherwise
-     */
     public boolean checkAnswer(String response) {
 
         boolean check;
@@ -79,28 +62,14 @@ public class QuestionWindow {
         return check;
     }
 
-    /**
-     * @author Niko Toro, Grace Ordonez, Olivia Breda
-     * This class establishes a ButtonListener object that tells JButtons how they should behave once clicked.
-     */
     class ButtonListener implements ActionListener {
 
-        private final JTextField tf;
+        private JTextField tf;
 
-        /**
-         * Non-default constructor that instantiates a JTextField object
-         * @param tf JTextField where the player entered their answer
-         */
         public ButtonListener(JTextField tf) {
             this.tf = tf;
         }
 
-        /**
-         * Overridden actionPerformed method that compares the response in the JTextField to the answer,
-         * a popup window appears telling the player if the response was correct or incorrect and adjust points accordingly.
-         * Disposes of the QuestionWindow's JFrame when complete.
-         * @param e ActionEvent representing the clicking of a JButton
-         */
         public void actionPerformed(ActionEvent e) {
 
             String getValue = tf.getText();
@@ -118,10 +87,6 @@ public class QuestionWindow {
         }
     }
 
-    /**
-     * @author Niko Toro
-     * This class creates an AbstractAction used to bind the 'ENTER' key to the submit JButton
-     */
     public class EnterAction extends AbstractAction {
         @Override
         public void actionPerformed(ActionEvent e) {
