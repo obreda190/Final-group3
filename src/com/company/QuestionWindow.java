@@ -4,6 +4,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+/**
+ * @author Grace Ordonez, Niko Toro, Olivia Breda
+ * presents question and category and a text feild for answers
+ */
+
 public class QuestionWindow {
 
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
@@ -16,6 +21,12 @@ public class QuestionWindow {
     private JTextField tf;
     private JButton button;
     private Player player;
+
+    /**
+     * constructor for question window class
+     * @param q
+     * @param p
+     */
 
     public QuestionWindow(Question q, Player p) {
 
@@ -52,6 +63,12 @@ public class QuestionWindow {
         frame.setVisible(true);
     }
 
+    /**
+     * checks if answer is correct
+     * @param response
+     * @return if true or false correct
+     */
+
     public boolean checkAnswer(String response) {
 
         boolean check;
@@ -66,9 +83,19 @@ public class QuestionWindow {
 
         private JTextField tf;
 
+        /**
+         * sets textfield as accessible variable
+         * @param tf
+         */
+
         public ButtonListener(JTextField tf) {
             this.tf = tf;
         }
+
+        /**
+         * checks if correct or not and prints appropriate message to screen.
+         * @param e
+         */
 
         public void actionPerformed(ActionEvent e) {
 
@@ -89,6 +116,11 @@ public class QuestionWindow {
 
     public class EnterAction extends AbstractAction {
         @Override
+
+        /**
+         * button action
+         */
+
         public void actionPerformed(ActionEvent e) {
             button.requestFocus();
             button.doClick();

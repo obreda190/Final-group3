@@ -5,6 +5,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.util.*;
 
+/**
+ * @author Grace Ordonez, Niko Toro, Olivia Breda
+ * Class displays question in window
+ */
+
 public class AskWindow {
 
     private static final int IFW = JComponent.WHEN_IN_FOCUSED_WINDOW;
@@ -15,6 +20,12 @@ public class AskWindow {
     private JFrame frame;
     private JLabel label;
     private JButton b1, b2, b3;
+
+    /**
+     *constructor for ask window sets up question window
+     * @param q
+     * @param players
+     */
 
     public AskWindow(Question q, ArrayList<Player> players) {
 
@@ -68,9 +79,19 @@ public class AskWindow {
 
         private Player p;
 
+        /**
+         * sets player as accesible variable
+         * @param p
+         */
+
         public ButtonListener(Player p) {
             this.p = p;
         }
+
+        /**
+         * runs question window
+         * @param e
+         */
 
         public void actionPerformed(ActionEvent e) {
             QuestionWindow qw = new QuestionWindow(question, p);
@@ -80,6 +101,10 @@ public class AskWindow {
 
     public class QPress extends AbstractAction {
         @Override
+
+        /**
+         * button action
+         */
         public void actionPerformed(ActionEvent e) {
             b1.requestFocus();
             b1.doClick();
@@ -88,6 +113,9 @@ public class AskWindow {
 
     public class BPress extends AbstractAction {
         @Override
+        /**
+         * button action
+         */
         public void actionPerformed(ActionEvent e) {
             b2.requestFocus();
             b2.doClick();
@@ -96,6 +124,9 @@ public class AskWindow {
 
     public class PPress extends AbstractAction {
         @Override
+        /**
+         * button action
+         */
         public void actionPerformed(ActionEvent e) {
             b3.requestFocus();
             b3.doClick();
