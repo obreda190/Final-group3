@@ -33,7 +33,7 @@ public class AskWindow {
         frame = new JFrame(category);
         frame.getContentPane().add(Box.createVerticalStrut(10));
 
-        // New JLabel created with the String value of a desired Question object
+        // New JLabel created with the String value of the desired Question object
         JLabel label = new JLabel(question.getQuestion());
         label.setBorder(blank);
         frame.getContentPane().add(label);
