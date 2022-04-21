@@ -10,6 +10,10 @@ public class ScoreBoard extends Thread {
     private ArrayList<Player> players;
     private JFrame board;
 
+    /**
+     * creates a gui displaying players scores
+     * @param players ArrayList of player objects
+     */
     public ScoreBoard(ArrayList<Player> players) {
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
@@ -48,6 +52,10 @@ public class ScoreBoard extends Thread {
         board.setVisible(true);
     }
 
+    /**
+     * returns the JFrame of the GUI
+     * @return JFrame
+     */
     public JFrame getBoard(){
         return this.board;
     }
