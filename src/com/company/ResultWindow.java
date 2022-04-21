@@ -5,16 +5,30 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.util.*;
 
+/**
+ * @author Niko Toro, Grace Ordonez, Olivia Breda
+ * This class creates a JFrame that displays "confetti" before announcing the player with the highest total
+ */
 public class ResultWindow extends Thread {
 
-    private Player p1, p2, p3;
+    private final Player p1;
+    private final Player p2;
+    private final Player p3;
 
+    /**
+     * Non-default constructor that takes an ArrayList of Player objects that represent the players of the game
+     * @param players ArrayList of players
+     */
     public ResultWindow(ArrayList<Player> players) {
         p1 = players.get(0);
         p2 = players.get(1);
         p3 = players.get(2);
     }
 
+    /**
+     * Overridden run method that sets up and displays the JFrame to be used as the ResultWindow
+     */
+    @Override
     public void run() {
 
         Border blackLine = BorderFactory.createLineBorder(Color.black);
@@ -56,6 +70,10 @@ public class ResultWindow extends Thread {
         JOptionPane.showMessageDialog(results, panel, "Winner!", JOptionPane.PLAIN_MESSAGE);
     }
 
+    /**
+     * Method that iterates through an ArrayList of players and calculates who has the highest score
+     * @return String value representing the player(s) with the highest score
+     */
     public String getWinner() {
 
         int points1 = p1.getScore();
@@ -82,6 +100,9 @@ public class ResultWindow extends Thread {
         return winner;
     }
 
+    /**
+     * This class creates Confetti drawings to be used in the GameWorld class
+     */
     class Confetti {
 
         private double x, y, dx, dy;
@@ -120,6 +141,9 @@ public class ResultWindow extends Thread {
         }
     }
 
+    /**
+     * This class creates a new GameWorld component to be added to the ResultWindow
+     */
     public class GameWorld extends JComponent {
 
         private ArrayList<Confetti> yellow, red, green, blue;
