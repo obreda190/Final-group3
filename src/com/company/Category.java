@@ -5,19 +5,18 @@ import java.util.*;
 
 /**
  * @author Grace Ordonez, Niko Toro, Olivia Breda
- * this class denotes categories and references the questions in them
+ * This class denotes categories and references the questions in them
  */
 
 public class Category {
 
-    private String name;
-    private ArrayList<Question> category;
+    private final String name;
+    private final ArrayList<Question> category;
 
     /**
-     * constructor gets categories from .jeopardy
-     * @param name
+     * Non-default constructor gets categories from jeopardy directory
+     * @param name String value representing the name of the .jeopardy file
      */
-
     public Category(String name) {
 
         this.name = name;
@@ -39,14 +38,16 @@ public class Category {
     }
 
     /**
-     * gets questions from given category
-     * @return questions in category
+     * Getter method that retrieves the questions from a given category
+     * @return An ArrayList containing all the Question objects in a Category
      */
-
     public ArrayList<Question> getQuestionsList() {
         return category;
     }
 
+    /**
+     * Method that iterates through the questions of a category and doubles their point value
+     */
     public void doubleJeopardy() {
         for (Question q : category) {
             q.doubleJeopardy();
@@ -54,10 +55,9 @@ public class Category {
     }
 
     /**
-     * determines category name
-     * @return category name
+     * Getter method that retrieves a readable version of the Category name
+     * @return String value representing the name of a Category to use for display
      */
-
     public String getName() {
 
         String data = name;
@@ -70,10 +70,9 @@ public class Category {
     }
 
     /**
-     * finds category data
-     * @return data
+     * Overridden toString method that presents the contents of a Category object as a String
+     * @return String value of the contents of a Category object
      */
-
     @Override
     public String toString() {
         String data = "";
