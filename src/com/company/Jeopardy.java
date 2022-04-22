@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  * @author Grace Ordonez, Niko Toro, Olivia Breda
- * Class that runs a replica of the Jeopardy game show
+ * This class runs a replica of the Jeopardy game show
  */
 public class Jeopardy {
 
