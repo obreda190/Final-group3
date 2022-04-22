@@ -4,57 +4,50 @@ import java.lang.*;
 
 /**
  * @author Grace Ordonez, Niko Toro, Olivia Breda
- * sets up player info
+ * This class represents any one person who is playing the game
  */
-
 public class Player {
 
     private String name;
     private int score;
 
     /**
-     * sets player name as accesible object
-     * sets score to 0
-     * @param name
+     * Non-default constructor that creates a new Player object with a name and a score of 0
+     * @param name String value representing the name of a specified player
      */
-
     public Player(String name) {
         this.name = name;
         score = 0;
     }
 
     /**
-     * gets player name
-     * @return player name
+     * Getter method that retrieves the name of a Player object
+     * @return instance variable name
      */
-
     public String getName() {
         return name;
     }
 
     /**
-     * gets players current score
-     * @return players score
+     * Getter method that retrieves the score of a Player object
+     * @return instance variable score
      */
-
     public int getScore() {
         return score;
     }
 
     /**
-     * adds points to score
-     * @param p
+     * Method that adds a specified amount of points to a Player's score
+     * @param p int value representing the number of points to be added
      */
-
     public void addPoints(int p) {
         score = score + p;
     }
 
     /**
-     * subtracts points from score
-     * @param p
+     * Method that subtracts a specified amount of points from a Player's score
+     * @param p int value representing the number of points to be subtracted
      */
-
     public void subtractPoints(int p) {
         score = score - p;
     }
